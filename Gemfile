@@ -1,3 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'heroku', '>= 2.25'
+group :development do
+  gem 'heroku', '>= 2.25'
+end
