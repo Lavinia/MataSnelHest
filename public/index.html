@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="stylesheets/base.css">
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link rel="stylesheet" href="stylesheets/colours.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -36,35 +37,88 @@
 	<!-- Primary Page Layout -->
 
 	<div class="container">
+		
+		<!-- Header -->
 		<div class="sixteen columns">
 			<h1 class="remove-bottom" style="margin-top: 40px">Mata Snel Hest</h1>
 			<h5>Version 0.0.1</h5>
 			<hr />
 		</div>
-		<div class="one-third column">
-			<h3>About Mata Snel Hest</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		
+		<!-- Horse information -->
+		<div class="five columns khaki">
+			<h3>Din häst</h3>
+			<form action="" class="four columns">
+
+				<label for="weight">Vikt</label>
+				<input type="text" id="weight" />
+				
+				<div class="row">
+					<div class="two columns alpha">				
+						<fieldset>
+							<label for="">Kön</label>
+							<label for="genderMare">
+								<input type="radio" name="gender" value="mare" id="genderMare">
+								<span>sto</span>
+							</label>
+					
+							<label for="genderGelding">
+								<input type="radio" name="gender" value="gelding" id="genderGelding">						
+								<span>valack</span>
+							</label>
+					
+							<label for="genderStallion">
+								<input type="radio" name="gender" value="stallion" id="genderStallion">						
+								<span>hingst</span>
+							</label>
+						</fieldset>
+					</div>
+				
+					<div class="two columns omega">				
+						<fieldset>
+							<label for="">Lättföddhet</label>
+							<label for="feedTypeEasy">
+								<input type="radio" name="feedType" value="easy" id="feedTypeEasy">
+								<span>lättfödd</span>
+							</label>
+					
+							<label for="feedTypeEasy">
+								<input type="radio" name="feedType" value="normal" id="feedTypeNormal">						
+								<span>normal</span>
+							</label>
+					
+							<label for="feedTypeEasy">
+								<input type="radio" name="feedType" value="hard" id="feedTypeHard">						
+								<span>svårfödd</span>
+							</label>
+						</fieldset>
+					</div>
+				</div>
+
+			</form>
 		</div>
-		<div class="one-third column">
-			<h3>Feed Me!</h3>
+		
+		<!-- Fodder information -->
+		<div class="eleven columns silver">
+			<h3>Foder</h3>
 			<ul class="square">
-				<li><strong>Mata</strong>: Feed</li>
-				<li><strong>Snel</strong>: Nice</li>
-				<li><strong>Hest</strong>: Horse</li>
+				<li><strong>Vikt</strong>: <span id="showWeight">Här hamnar vikten...</span></li>
+				<li><strong>Kön</strong>: <span id="showGender">...hästens kön...</span></li>
+				<li><strong>Lättföddhet</strong>: <span id="showFeedType">...och hur pass lättfödd den är.</span></li>
 			</ul>
 		</div>
-		<div class="one-third column">
-			<h3>Docs &amp; Support</h3>
+
+		<!-- Fooder calculation -->
+		<div class="sixteen columns limeGreen">.
+			<h3>Foderstat</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
-		<div class="eight columns">
-			<h2>This should be half the page in width.</h2>
-		</div>
-		<div class="six columns">
-			<h4>This should be another 37.5% of the total width.</h4>
-		</div>
-		<div class="two columns">
-			<h6>A tiny fraction of the total width (1/8).</h6>
+
+		<!-- Footer -->
+		<div class="sixteen columns">
+			<hr />
+			<em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and 
+			Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).
 		</div>
 
 	</div><!-- container -->
