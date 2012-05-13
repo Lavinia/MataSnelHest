@@ -23,7 +23,7 @@ describe 'Horse', ->
 		it 'should throw an exception without changing the weight when specifying a non-number', ->
 			@horse.setWeight 600
 			weightInLetters = '500andtwentyseven'
-			(=> @horse.setWeight(weightInLetters)).should.throw "#{weightInLetters} is not a number"
+			(=> @horse.setWeight weightInLetters).should.throw "#{weightInLetters} is not a valid number"
 			@horse.weight.should.equal 600
 		
 	
@@ -45,6 +45,26 @@ describe 'Horse', ->
 		
 		it 'should not be able to be another gender', ->
 			genderBender = 'shemale'
-			(=> @horse.setGender genderBender).should.throw "#{genderBender} is not a horse gender"
+			(=> @horse.setGender genderBender).should.throw "#{genderBender} is not a valid horse gender"
 		
 	
+	describe 'feedType', ->
+		it 'should be normal from the start', ->
+			@horse.feedType.should.equal 'normal'
+		
+		it 'should be able to be hard to feed', ->
+			@horse.setFeedType 'hard'
+			@horse.feedType.should.equal 'hard'
+		
+		it 'should be able to be normal to feed', ->
+			@horse.setFeedType 'normal'
+			@horse.feedType.should.equal 'normal'
+		
+		it 'should be able to be easy to feed', ->
+			@horse.setFeedType 'easy'
+			@horse.feedType.should.equal 'easy'
+		
+		it 'should not be able to have another feed type', ->
+			nonFeedType = 'cumbersome'
+			(=> @horse.setFeedType nonFeedType).should.throw "#{nonFeedType} is not a valid horse feed type"
+			
