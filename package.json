@@ -1,0 +1,7 @@
+{
+	"name": "matasnelhest",
+	"version": "0.0.1",
+	"dependencies": {
+		"connect": "2.2.2"
+	}
+}
