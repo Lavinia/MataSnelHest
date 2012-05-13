@@ -46,12 +46,14 @@
 		</div>
 		
 		<!-- Horse information -->
-		<div class="five columns khaki">
+		<div class="four columns khaki">
 			<h3>Din häst</h3>
-			<form action="" class="four columns">
+			<form id="horseInfo">
 
-				<label for="weight">Vikt</label>
-				<input type="text" id="weight" />
+				<div class="row three columns alpha">
+					<label for="weight">Vikt</label>
+					<input type="text" id="weight" />
+				</div>
 				
 				<div class="row">
 					<div class="two columns alpha">				
@@ -76,7 +78,7 @@
 				
 					<div class="two columns omega">				
 						<fieldset>
-							<label for="">Lättföddhet</label>
+							<label for="">Typ av häst</label>
 							<label for="feedTypeEasy">
 								<input type="radio" name="feedType" value="easy" id="feedTypeEasy">
 								<span>lättfödd</span>
@@ -99,7 +101,7 @@
 		</div>
 		
 		<!-- Fodder information -->
-		<div class="eleven columns silver">
+		<div class="twelve columns silver">
 			<h3>Foder</h3>
 			<ul class="square">
 				<li><strong>Vikt</strong>: <span id="showWeight">Här hamnar vikten...</span></li>
@@ -109,7 +111,7 @@
 		</div>
 
 		<!-- Fooder calculation -->
-		<div class="sixteen columns limeGreen">.
+		<div class="sixteen columns limeGreen">
 			<h3>Foderstat</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
@@ -117,8 +119,8 @@
 		<!-- Footer -->
 		<div class="sixteen columns">
 			<hr />
-			<em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and 
-			Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).
+			<p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and 
+			Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).</p>
 		</div>
 
 	</div><!-- container -->
@@ -129,6 +131,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 	<script src="javascript/skeleton/tabs.js"></script>
+	<script src="javascript/horseInfoEvents.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- End Document -->
 </body>
