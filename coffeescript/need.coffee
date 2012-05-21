@@ -14,22 +14,22 @@ class Need
 		@__round(0.5 * Math.pow(@horse.weight, 0.75) * feedTypeFactor * genderFactor)
 		
 	proteinInGrams: ->
-		@energyInMJ() * 6
+		@__round @energyInMJ() * 6
 	
 	calciumInGrams: ->
-		(@horse.weight / 100.0) * 4.0
+		@__round (@horse.weight / 100.0) * 4.0
 	
 	phosphorInGrams: ->
-		(@horse.weight / 100) * 2.8	
+		@__round (@horse.weight / 100) * 2.8	
 	
 	magnesiumInGrams: ->
-		(@horse.weight / 100) * 1.5
+		@__round (@horse.weight / 100) * 1.5
 	
 	seleniumInMilligrams: ->
-		(@horse.weight / 100) * 0.2
+		@__round (@horse.weight / 100) * 0.2
 	
 	solidsInKilos: ->
-		(@horse.weight / 100) * 1.5
+		@__round (@horse.weight / 100) * 1.5
 
 root = exports ? window
 root.Need = Need
