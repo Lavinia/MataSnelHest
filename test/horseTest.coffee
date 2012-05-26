@@ -67,4 +67,30 @@ describe 'Horse', ->
 		it 'should not be able to have another feed type', ->
 			nonFeedType = 'cumbersome'
 			(=> @horse.setFeedType nonFeedType).should.throw "#{nonFeedType} is not a valid horse feed type"
+		
+	describe 'workload', ->
+		it 'should be zero from the start', ->
+			@horse.workload.should.eql { daysPerWeek: 0, walk: 0, trot: 0 }
+		
+		it 'should be able to set the days per week', ->
+			@horse.setWorkload 'daysPerWeek', 5
+			@horse.workload.daysPerWeek.should.equal 5
+			@horse.setWorkload 'daysPerWeek', 3
+			@horse.workload.daysPerWeek.should.equal 3
+		
+		it 'should be able to set the walk', ->
+			@horse.setWorkload 'walk', 30
+			@horse.workload.walk.should.equal 30
+			@horse.setWorkload 'walk', 60
+			@horse.workload.walk.should.equal 60
 			
+		it 'should be able to set the trot', ->
+			@horse.setWorkload 'trot', 5
+			@horse.workload.trot.should.equal 5
+			@horse.setWorkload 'trot', 25
+			@horse.workload.trot.should.equal 25
+		
+		it 'should be able to set a combination of days per week and walk', ->
+			@horse.setWorkload 'daysPerWeek', 4, 'walk', 50
+			@horse.workload.should.eql { daysPerWeek: 4, walk: 50, trot: 0 }
+		

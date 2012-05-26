@@ -56,7 +56,7 @@
 				</div>
 				
 				<div class="row">
-					<div class="two columns alpha">				
+					<div class="two columns alpha">
 						<fieldset>
 							<label for="">Kön</label>
 							<label for="genderMare">
@@ -65,18 +65,18 @@
 							</label>
 					
 							<label for="genderGelding">
-								<input type="radio" name="gender" value="gelding" id="genderGelding">						
+								<input type="radio" name="gender" value="gelding" id="genderGelding">
 								<span>valack</span>
 							</label>
 					
 							<label for="genderStallion">
-								<input type="radio" name="gender" value="stallion" id="genderStallion">						
+								<input type="radio" name="gender" value="stallion" id="genderStallion">
 								<span>hingst</span>
 							</label>
 						</fieldset>
 					</div>
 				
-					<div class="two columns omega">				
+					<div class="two columns omega">
 						<fieldset>
 							<label for="">Typ av häst</label>
 							<label for="feedTypeEasy">
@@ -85,18 +85,40 @@
 							</label>
 					
 							<label for="feedTypeEasy">
-								<input type="radio" name="feedType" value="normal" id="feedTypeNormal">						
+								<input type="radio" name="feedType" value="normal" id="feedTypeNormal">
 								<span>normal</span>
 							</label>
 					
 							<label for="feedTypeEasy">
-								<input type="radio" name="feedType" value="hard" id="feedTypeHard">						
+								<input type="radio" name="feedType" value="hard" id="feedTypeHard">
 								<span>svårfödd</span>
 							</label>
 						</fieldset>
 					</div>
 				</div>
-
+				
+				<h4>Hur mycket arbetar din häst?</h4>
+				<div class="row">
+					<label for="days-per-week">Dagar/vecka</label>
+					<select class="three columns alpha" name="days-per-week" id="days-per-week" size="1">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+					</select>
+				</div>
+				<div class="row">
+					<label for="walk">Skritt i minuter/dag</label>
+					<input class="three columns alpha" type="text" id="walk" />
+				</div>
+				<div class="row">
+					<label for="trot">Trav/galopp i minuter/dag</label>
+					<input class="three columns alpha" type="text" id="trot" />
+				</div>
 			</form>
 		</div>
 		
