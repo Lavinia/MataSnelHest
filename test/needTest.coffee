@@ -37,7 +37,7 @@ describe 'Need', ->
 			@need.energyInMJ = -> 50
 			@need.proteinInGrams().should.equal 300.00
 			
-		it 'shows the result with 2 numbers in percision', ->
+		it 'shows the result with 2 numbers in precision', ->
 			@horse.setGender 'stallion'
 			@horse.setFeedType 'hard'
 			@need.proteinInGrams().should.equal 354.66
@@ -46,7 +46,7 @@ describe 'Need', ->
 		it "calculates the calcium need in grams based on the horse's weight", ->
 			@need.calciumInGrams().should.equal 18.00
 	
-		it 'shows the result with 2 numbers in percision', ->
+		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 565.6
 			@need.calciumInGrams().should.equal 22.62
 		
@@ -54,7 +54,7 @@ describe 'Need', ->
 		it "calculates the phosphor need in grams based on the horse's weight", ->
 			@need.phosphorInGrams().should.equal 12.60
 		
-		it 'shows the result with 2 numbers in percision', ->
+		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455
 			@need.phosphorInGrams().should.equal 12.74
 			
@@ -62,14 +62,15 @@ describe 'Need', ->
 		it "calculates the magnesium need in grams based on the horse's weight", ->
 			@need.magnesiumInGrams().should.equal 6.75
 	
-		it 'shows the result with 2 numbers in percision', ->
+		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455
 			@need.magnesiumInGrams().should.equal 6.82	
 	
 	describe 'calculate selenium', ->
 		it "calculates the selenium need in milligrams based on the horse's weight", ->
 			@need.seleniumInMilligrams().should.equal 0.90
-		it 'shows the result with 2 numbers in percision', ->
+
+		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 612
 			@need.seleniumInMilligrams().should.equal 1.22
 	
@@ -77,7 +78,7 @@ describe 'Need', ->
 		it "calculates the solids in kilos based on the horse's weight", ->
 			@need.solidsInKilos().should.equal 6.75
 		
-		it 'shows the result with 2 numbers in percision', ->
+		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455
 			@need.solidsInKilos().should.equal 6.82
 		
