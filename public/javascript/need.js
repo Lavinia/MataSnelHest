@@ -21,7 +21,7 @@
       return (walkEnergy + trotEnergy) * (this.horse.workload['daysPerWeek'] / 7);
     };
 
-    Need.prototype.energyInMJ = function() {
+    Need.prototype.baseEnergyInMJ = function() {
       var feedTypeFactor, genderFactor;
       feedTypeFactor = genderFactor = 1.00;
       switch (this.horse.feedType) {
@@ -34,7 +34,15 @@
       if (this.horse.gender === 'stallion') {
         genderFactor = 1.10;
       }
-      return this.__round((0.5 * Math.pow(this.horse.weight, 0.75) * feedTypeFactor * genderFactor) + this.workEnergyInMJ());
+      return 0.5 * Math.pow(this.horse.weight, 0.75) * feedTypeFactor * genderFactor;
+    };
+
+    Need.prototype.workBaseEnergyRatio = function() {
+      return this.workEnergyInMJ() / this.baseEnergyInMJ();
+    };
+
+    Need.prototype.energyInMJ = function() {
+      return this.__round(this.baseEnergyInMJ() + this.workEnergyInMJ());
     };
 
     Need.prototype.proteinInGrams = function() {
@@ -50,7 +58,18 @@
     };
 
     Need.prototype.magnesiumInGrams = function() {
-      return this.__round((this.horse.weight / 100) * 1.5);
+      var magnesiumFactor, ratio;
+      ratio = this.workBaseEnergyRatio();
+      if (ratio === 0) {
+        magnesiumFactor = 1.5;
+      } else if (ratio < 0.30) {
+        magnesiumFactor = 1.9;
+      } else if (ratio < 0.50) {
+        magnesiumFactor = 2.3;
+      } else {
+        magnesiumFactor = 3.0;
+      }
+      return this.__round((this.horse.weight / 100) * magnesiumFactor);
     };
 
     Need.prototype.seleniumInMilligrams = function() {

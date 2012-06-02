@@ -63,12 +63,16 @@ describe 'Need', ->
 			@need.phosphorInGrams().should.equal 12.74
 			
 	describe 'calculate magnesium', ->
-		it "calculates the magnesium need in grams based on the horse's weight", ->
-			@need.magnesiumInGrams().should.equal 6.75
-	
+		it "calculates the magnesium need in grams based on the horse's weight and workload", ->
+			ratios = [0.0, 0.29, 0.49, 0.50]
+			expected = [6.75, 8.55, 10.35, 13.50]
+			for i in [0...ratios.length]
+				@need.workBaseEnergyRatio = -> ratios[i]
+				@need.magnesiumInGrams().should.equal expected[i]
+		
 		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455
-			@need.magnesiumInGrams().should.equal 6.82	
+			@need.magnesiumInGrams().should.equal 6.82
 	
 	describe 'calculate selenium', ->
 		it "calculates the selenium need in milligrams based on the horse's weight", ->
@@ -85,4 +89,13 @@ describe 'Need', ->
 		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455
 			@need.solidsInKilos().should.equal 6.82
+	
+	describe 'calculate ratio of base need and work need', ->
+		it 'calculates the ratio of the base need and work need', ->
+			@need.baseEnergyInMJ = -> 56.00
+			@need.workEnergyInMJ = -> 21.00
+			@need.workBaseEnergyRatio().should.equal 21.00/56.00
+			@need.baseEnergyInMJ = -> 62.00
+			@need.workEnergyInMJ = -> 40.00
+			@need.workBaseEnergyRatio().should.equal 40.00 / 62.00
 	

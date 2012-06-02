@@ -10,13 +10,19 @@ class Need
 		trotEnergy = (@horse.workload['trot'] / 10) * 1.3 * (@horse.weight / 100)
 		(walkEnergy + trotEnergy) * (@horse.workload['daysPerWeek'] / 7)
 	
-	energyInMJ: ->
+	baseEnergyInMJ: ->
 		feedTypeFactor = genderFactor = 1.00
 		switch @horse.feedType
 			when 'normal' then feedTypeFactor = 1.05
 			when 'hard' then feedTypeFactor = 1.10
 		if @horse.gender is 'stallion' then genderFactor = 1.10
-		@__round((0.5 * Math.pow(@horse.weight, 0.75) * feedTypeFactor * genderFactor) + @workEnergyInMJ())
+		0.5 * Math.pow(@horse.weight, 0.75) * feedTypeFactor * genderFactor
+	
+	workBaseEnergyRatio: ->
+		@workEnergyInMJ() / @baseEnergyInMJ()
+	
+	energyInMJ: ->
+		@__round(@baseEnergyInMJ() + @workEnergyInMJ())
 	
 	proteinInGrams: ->
 		@__round @energyInMJ() * 6
@@ -28,7 +34,16 @@ class Need
 		@__round (@horse.weight / 100) * 2.8	
 	
 	magnesiumInGrams: ->
-		@__round (@horse.weight / 100) * 1.5
+		ratio = @workBaseEnergyRatio()
+		if ratio is 0
+			magnesiumFactor = 1.5
+		else if ratio < 0.30
+			magnesiumFactor = 1.9
+		else if ratio < 0.50
+			magnesiumFactor = 2.3
+		else
+			magnesiumFactor =  3.0
+		@__round (@horse.weight / 100) * magnesiumFactor
 	
 	seleniumInMilligrams: ->
 		@__round (@horse.weight / 100) * 0.2
