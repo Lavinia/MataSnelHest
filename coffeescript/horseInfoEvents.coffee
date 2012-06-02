@@ -25,6 +25,18 @@ jQuery ->
 	jQuery('input[name=feedType]:radio').change ->
 		horse.setFeedType jQuery(this).val()
 		printNeeds()
+	
 	jQuery('#horseInfo').submit -> false
-
-# gå igenom värdena, sätt värden på häst och uppdatera uträkningen. Sätt utskrift i egen funktion ( plus visa enheter på nåt sätt).
+	
+	jQuery('#days-per-week').change ->
+		horse.setWorkload 'daysPerWeek', jQuery(this).val()
+		printNeeds()
+	
+	jQuery('#walk').keyup ->
+		horse.setWorkload 'walk', jQuery(this).val()
+		printNeeds()
+	
+	jQuery('#trot').keyup ->
+		horse.setWorkload 'trot', jQuery(this).val()
+		printNeeds()
+	

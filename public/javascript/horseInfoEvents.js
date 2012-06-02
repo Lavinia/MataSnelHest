@@ -31,8 +31,20 @@
       horse.setFeedType(jQuery(this).val());
       return printNeeds();
     });
-    return jQuery('#horseInfo').submit(function() {
+    jQuery('#horseInfo').submit(function() {
       return false;
+    });
+    jQuery('#days-per-week').change(function() {
+      horse.setWorkload('daysPerWeek', jQuery(this).val());
+      return printNeeds();
+    });
+    jQuery('#walk').keyup(function() {
+      horse.setWorkload('walk', jQuery(this).val());
+      return printNeeds();
+    });
+    return jQuery('#trot').keyup(function() {
+      horse.setWorkload('trot', jQuery(this).val());
+      return printNeeds();
     });
   });
 

@@ -14,6 +14,13 @@
       return Math.round(value * 100) / 100;
     };
 
+    Need.prototype.workEnergyInMJ = function() {
+      var trotEnergy, walkEnergy;
+      walkEnergy = (this.horse.workload['walk'] / 10) * 0.2 * (this.horse.weight / 100);
+      trotEnergy = (this.horse.workload['trot'] / 10) * 1.3 * (this.horse.weight / 100);
+      return (walkEnergy + trotEnergy) * (this.horse.workload['daysPerWeek'] / 7);
+    };
+
     Need.prototype.energyInMJ = function() {
       var feedTypeFactor, genderFactor;
       feedTypeFactor = genderFactor = 1.00;
@@ -27,7 +34,7 @@
       if (this.horse.gender === 'stallion') {
         genderFactor = 1.10;
       }
-      return this.__round(0.5 * Math.pow(this.horse.weight, 0.75) * feedTypeFactor * genderFactor);
+      return this.__round((0.5 * Math.pow(this.horse.weight, 0.75) * feedTypeFactor * genderFactor) + this.workEnergyInMJ());
     };
 
     Need.prototype.proteinInGrams = function() {

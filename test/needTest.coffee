@@ -32,6 +32,10 @@ describe 'Need', ->
 			@horse.setGender 'stallion'
 			@need.energyInMJ().should.equal 56.42
 		
+		it 'into account the workload', ->
+			@horse.setWorkload 'daysPerWeek', 4, 'walk', 30, 'trot', 7
+			@need.energyInMJ().should.equal 55.18
+		
 	describe 'calculate protein', ->
 		it 'calculates the protein need in grams based on six times the energy need', ->
 			@need.energyInMJ = -> 50
@@ -81,4 +85,4 @@ describe 'Need', ->
 		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455
 			@need.solidsInKilos().should.equal 6.82
-		
+	
