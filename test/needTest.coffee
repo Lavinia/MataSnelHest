@@ -55,8 +55,12 @@ describe 'Need', ->
 			@need.calciumInGrams().should.equal 22.62
 		
 	describe 'calculate phosphor', ->
-		it "calculates the phosphor need in grams based on the horse's weight", ->
-			@need.phosphorInGrams().should.equal 12.60
+		it "calculates the phosphor need in grams based on the horse's weight and workload", ->
+			ratios = [0.0, 0.29, 0.49, 0.50]
+			expected = [12.60, 16.20, 18.90, 26.10]
+			for i in [0...ratios.length]
+				@need.workBaseEnergyRatio = -> ratios[i]
+				@need.phosphorInGrams().should.equal expected[i]
 		
 		it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 455

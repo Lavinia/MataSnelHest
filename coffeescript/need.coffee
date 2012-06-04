@@ -31,7 +31,16 @@ class Need
 		@__round (@horse.weight / 100.0) * 4.0
 	
 	phosphorInGrams: ->
-		@__round (@horse.weight / 100) * 2.8	
+		ratio = @workBaseEnergyRatio()
+		if ratio is 0
+			phosphorFactor = 2.8
+		else if ratio < 0.30
+			phosphorFactor = 3.6
+		else if ratio < 0.50
+			phosphorFactor = 4.2
+		else
+			phosphorFactor =  5.8
+		@__round (@horse.weight / 100) * phosphorFactor
 	
 	magnesiumInGrams: ->
 		ratio = @workBaseEnergyRatio()

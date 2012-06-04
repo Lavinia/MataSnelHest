@@ -54,7 +54,18 @@
     };
 
     Need.prototype.phosphorInGrams = function() {
-      return this.__round((this.horse.weight / 100) * 2.8);
+      var phosphorFactor, ratio;
+      ratio = this.workBaseEnergyRatio();
+      if (ratio === 0) {
+        phosphorFactor = 2.8;
+      } else if (ratio < 0.30) {
+        phosphorFactor = 3.6;
+      } else if (ratio < 0.50) {
+        phosphorFactor = 4.2;
+      } else {
+        phosphorFactor = 5.8;
+      }
+      return this.__round((this.horse.weight / 100) * phosphorFactor);
     };
 
     Need.prototype.magnesiumInGrams = function() {
