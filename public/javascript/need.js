@@ -50,7 +50,18 @@
     };
 
     Need.prototype.calciumInGrams = function() {
-      return this.__round((this.horse.weight / 100.0) * 4.0);
+      var calciumFactor, ratio;
+      ratio = this.workBaseEnergyRatio();
+      if (ratio === 0) {
+        calciumFactor = 4.0;
+      } else if (ratio < 0.30) {
+        calciumFactor = 6.0;
+      } else if (ratio < 0.50) {
+        calciumFactor = 7.0;
+      } else {
+        calciumFactor = 8.0;
+      }
+      return this.__round((this.horse.weight / 100) * calciumFactor);
     };
 
     Need.prototype.phosphorInGrams = function() {

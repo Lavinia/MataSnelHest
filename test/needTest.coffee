@@ -48,9 +48,13 @@ describe 'Need', ->
 	
 	describe 'calculate calcium', ->
 		it "calculates the calcium need in grams based on the horse's weight", ->
-			@need.calciumInGrams().should.equal 18.00
-	
-		it 'shows the result with 2 numbers in precision', ->
+			ratios = [0.0, 0.29, 0.49, 0.50]
+			expected = [18.00, 27.00, 31.50, 36.00]
+			for i in [0...ratios.length]
+				@need.workBaseEnergyRatio = -> ratios[i]
+				@need.calciumInGrams().should.equal expected[i]
+		
+	it 'shows the result with 2 numbers in precision', ->
 			@horse.setWeight 565.6
 			@need.calciumInGrams().should.equal 22.62
 		

@@ -28,7 +28,16 @@ class Need
 		@__round @energyInMJ() * 6
 	
 	calciumInGrams: ->
-		@__round (@horse.weight / 100.0) * 4.0
+		ratio = @workBaseEnergyRatio()
+		if ratio is 0
+			calciumFactor = 4.0
+		else if ratio < 0.30
+			calciumFactor = 6.0
+		else if ratio < 0.50
+			calciumFactor = 7.0
+		else
+			calciumFactor =  8.0
+		@__round (@horse.weight / 100) * calciumFactor
 	
 	phosphorInGrams: ->
 		ratio = @workBaseEnergyRatio()
