@@ -33,7 +33,7 @@ class Horse
 	setWorkload: (args...) ->
 		for i in [0...args.length] by 2
 			if (isNaN args[i + 1]) or args[i + 1] < 0
-				throw " #{args[i + 1]} is not a valid number"
+				throw "#{args[i + 1]} is not a valid number"
 			else
 				@workload[args[i]] = args[i + 1]
 	

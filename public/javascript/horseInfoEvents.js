@@ -19,6 +19,9 @@
   };
 
   jQuery(function() {
+    jQuery('#horseInfo').submit(function() {
+      return false;
+    });
     jQuery('#weight').keyup(function() {
       try {
         horse.setWeight(jQuery(this).val());
@@ -35,9 +38,6 @@
     jQuery('input[name=feedType]:radio').change(function() {
       horse.setFeedType(jQuery(this).val());
       return printNeeds();
-    });
-    jQuery('#horseInfo').submit(function() {
-      return false;
     });
     jQuery('#days-per-week').change(function() {
       horse.setWorkload('daysPerWeek', jQuery(this).val());

@@ -55,7 +55,7 @@
       _results = [];
       for (i = _i = 0, _ref = args.length; _i < _ref; i = _i += 2) {
         if ((isNaN(args[i + 1])) || args[i + 1] < 0) {
-          throw " " + args[i + 1] + " is not a valid number";
+          throw "" + args[i + 1] + " is not a valid number";
         } else {
           _results.push(this.workload[args[i]] = args[i + 1]);
         }

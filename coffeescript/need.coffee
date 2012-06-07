@@ -27,7 +27,7 @@ class Need
 	proteinInGrams: ->
 		@__round @energyInMJ() * 6
 	
-	macroMineralNeed: (mineralNeeds) ->
+	__macroMineralNeed: (mineralNeeds) ->
 		ratio = @workBaseEnergyRatio()
 		if ratio is 0
 			factor = mineralNeeds[0]
@@ -39,13 +39,13 @@ class Need
 			factor = mineralNeeds[3]
 	
 	calciumInGrams: ->
-		@__round (@horse.weight / 100) * @macroMineralNeed([4.0, 6.0, 7.0, 8.0])
+		@__round (@horse.weight / 100) * @__macroMineralNeed([4.0, 6.0, 7.0, 8.0])
 	
 	phosphorInGrams: ->
-		@__round (@horse.weight / 100) * @macroMineralNeed([2.8, 3.6, 4.2, 5.8])
+		@__round (@horse.weight / 100) * @__macroMineralNeed([2.8, 3.6, 4.2, 5.8])
 	
 	magnesiumInGrams: ->
-		@__round (@horse.weight / 100) * @macroMineralNeed([1.5, 1.9, 2.3, 3.0])
+		@__round (@horse.weight / 100) * @__macroMineralNeed([1.5, 1.9, 2.3, 3.0])
 	
 	seleniumInMilligrams: ->
 		@__round (@horse.weight / 100) * 0.2
