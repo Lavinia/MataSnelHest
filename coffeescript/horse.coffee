@@ -16,6 +16,8 @@ class Horse
 		convertedWeight = (Number) weight
 		if isNaN convertedWeight 
 			throw "#{weight} is not a valid number"
+		else if convertedWeight < 0
+			throw "#{weight} is not a valid weight"
 		@weight = convertedWeight
 	
 	setGender: (gender) ->
@@ -30,7 +32,10 @@ class Horse
 	
 	setWorkload: (args...) ->
 		for i in [0...args.length] by 2
-			@workload[args[i]] = args[i + 1]
+			if (isNaN args[i + 1]) or args[i + 1] < 0
+				throw " #{args[i + 1]} is not a valid number"
+			else
+				@workload[args[i]] = args[i + 1]
 	
 root = exports ? window
 root.Horse = Horse

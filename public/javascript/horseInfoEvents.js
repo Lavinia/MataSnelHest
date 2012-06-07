@@ -20,8 +20,13 @@
 
   jQuery(function() {
     jQuery('#weight').keyup(function() {
-      horse.setWeight(jQuery(this).val());
-      return printNeeds();
+      try {
+        horse.setWeight(jQuery(this).val());
+        printNeeds();
+        return jQuery('#weight').siblings('.error').html('');
+      } catch (err) {
+        return jQuery('#weight').siblings('.error').html(err);
+      }
     });
     jQuery('input[name=gender]:radio').change(function() {
       horse.setGender(jQuery(this).val());
@@ -39,12 +44,22 @@
       return printNeeds();
     });
     jQuery('#walk').keyup(function() {
-      horse.setWorkload('walk', jQuery(this).val());
-      return printNeeds();
+      try {
+        horse.setWorkload('walk', jQuery(this).val());
+        printNeeds();
+        return jQuery('#walk').siblings('.error').html('');
+      } catch (err) {
+        return jQuery('#walk').siblings('.error').html(err);
+      }
     });
     return jQuery('#trot').keyup(function() {
-      horse.setWorkload('trot', jQuery(this).val());
-      return printNeeds();
+      try {
+        horse.setWorkload('trot', jQuery(this).val());
+        printNeeds();
+        return jQuery('#trot').siblings('.error').html('');
+      } catch (err) {
+        return jQuery('#trot').siblings('.error').html(err);
+      }
     });
   });
 

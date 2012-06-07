@@ -29,6 +29,8 @@
       convertedWeight = Number(weight);
       if (isNaN(convertedWeight)) {
         throw "" + weight + " is not a valid number";
+      } else if (convertedWeight < 0) {
+        throw "" + weight + " is not a valid weight";
       }
       return this.weight = convertedWeight;
     };
@@ -52,7 +54,11 @@
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       _results = [];
       for (i = _i = 0, _ref = args.length; _i < _ref; i = _i += 2) {
-        _results.push(this.workload[args[i]] = args[i + 1]);
+        if ((isNaN(args[i + 1])) || args[i + 1] < 0) {
+          throw " " + args[i + 1] + " is not a valid number";
+        } else {
+          _results.push(this.workload[args[i]] = args[i + 1]);
+        }
       }
       return _results;
     };

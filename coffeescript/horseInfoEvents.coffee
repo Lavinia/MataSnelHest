@@ -15,8 +15,13 @@ printNeeds = ->
 #document ready
 jQuery ->
 	jQuery('#weight').keyup ->
-		horse.setWeight jQuery(this).val() 
-		printNeeds()
+		try 
+			horse.setWeight jQuery(this).val()
+			printNeeds()
+			jQuery('#weight').siblings('.error').html ''
+		catch err
+			jQuery('#weight').siblings('.error').html err
+		
 	
 	jQuery('input[name=gender]:radio').change ->
 		horse.setGender jQuery(this).val()
@@ -33,10 +38,19 @@ jQuery ->
 		printNeeds()
 	
 	jQuery('#walk').keyup ->
-		horse.setWorkload 'walk', jQuery(this).val()
-		printNeeds()
+		try
+			horse.setWorkload 'walk', jQuery(this).val()
+			printNeeds()
+			jQuery('#walk').siblings('.error').html ''
+		catch err
+			jQuery('#walk').siblings('.error').html err
 	
 	jQuery('#trot').keyup ->
-		horse.setWorkload 'trot', jQuery(this).val()
-		printNeeds()
+		try
+			horse.setWorkload 'trot', jQuery(this).val()
+			printNeeds()
+			jQuery('#trot').siblings('.error').html ''
+		catch err
+			jQuery('#trot').siblings('.error').html err
+			
 	

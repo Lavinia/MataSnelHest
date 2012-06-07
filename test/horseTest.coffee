@@ -26,6 +26,10 @@ describe 'Horse', ->
 			(=> @horse.setWeight weightInLetters).should.throw "#{weightInLetters} is not a valid number"
 			@horse.weight.should.equal 600
 		
+		it 'should throw an exception when weight is below zero', ->
+			@horse.setWeight 400
+			negativeWeight = -200
+			(=> @horse.setWeight negativeWeight).should.throw "#{negativeWeight} is not a valid weight"
 	
 	describe 'gender', ->
 		it 'should be null from the start', ->
@@ -71,7 +75,15 @@ describe 'Horse', ->
 	describe 'workload', ->
 		it 'should be zero from the start', ->
 			@horse.workload.should.eql { daysPerWeek: 0, walk: 0, trot: 0 }
-		
+			
+		it 'should only accept positive numbers', ->
+			negativeWalk = -32
+			(=>@horse.setWorkload 'walk', negativeWalk).should.throw "#{negativeWalk} is not a valid number"
+			
+		it 'should only accept numbers', ->
+			trotInLetters = 'thirtyTwo'
+			( => 	@horse.setWorkload 'trot', trotInLetters).should.throw "#{trotInLetters} is not a valid number"
+			
 		it 'should be able to set the days per week', ->
 			@horse.setWorkload 'daysPerWeek', 5
 			@horse.workload.daysPerWeek.should.equal 5
