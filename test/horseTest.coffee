@@ -26,11 +26,12 @@ describe 'Horse', ->
 			(=> @horse.setWeight weightInLetters).should.throw "#{weightInLetters} is not a valid number"
 			@horse.weight.should.equal 600
 		
-		it 'should throw an exception when weight is below zero', ->
+		it 'should throw an exception without changing the weight when specifying a number below zero', ->
 			@horse.setWeight 400
 			negativeWeight = -200
 			(=> @horse.setWeight negativeWeight).should.throw "#{negativeWeight} is not a valid weight"
-	
+			@horse.weight.should.equal 400
+			
 	describe 'gender', ->
 		it 'should be null from the start', ->
 			expect(@horse.gender).to.be.null
@@ -76,14 +77,6 @@ describe 'Horse', ->
 		it 'should be zero from the start', ->
 			@horse.workload.should.eql { daysPerWeek: 0, walk: 0, trot: 0 }
 			
-		it 'should only accept positive numbers', ->
-			negativeWalk = -32
-			(=>@horse.setWorkload 'walk', negativeWalk).should.throw "#{negativeWalk} is not a valid number"
-			
-		it 'should only accept numbers', ->
-			trotInLetters = 'thirtyTwo'
-			( => 	@horse.setWorkload 'trot', trotInLetters).should.throw "#{trotInLetters} is not a valid number"
-			
 		it 'should be able to set the days per week', ->
 			@horse.setWorkload 'daysPerWeek', 5
 			@horse.workload.daysPerWeek.should.equal 5
@@ -105,4 +98,16 @@ describe 'Horse', ->
 		it 'should be able to set a combination of days per week and walk', ->
 			@horse.setWorkload 'daysPerWeek', 4, 'walk', 50
 			@horse.workload.should.eql { daysPerWeek: 4, walk: 50, trot: 0 }
+		
+		it 'should throw an exception without changing the workload when given a negative amount of walking', ->
+			@horse.setWorkload 'walk', 60
+			negativeWalk = -32
+			(=> @horse.setWorkload 'walk', negativeWalk).should.throw "#{negativeWalk} is not a valid number"
+			@horse.workload.walk.should.equal 60
+		
+		it 'should throw an exception without changing the workload when given a non number', ->
+			@horse.setWorkload 'trot', 20
+			trotInLetters = 'thirtyTwo'
+			( => 	@horse.setWorkload 'trot', trotInLetters).should.throw "#{trotInLetters} is not a valid number"
+			@horse.workload.trot.should.equal 20
 		
