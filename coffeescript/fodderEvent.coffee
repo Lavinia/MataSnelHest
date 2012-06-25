@@ -1,21 +1,31 @@
 fodder_list = new FodderList
-fodder_list.append new Fodder
 
 window.fodder_list = fodder_list # Only used for debugging
 
+addFodder = () ->
+  fodder_list.append new Fodder
+  id = fodder_list.lastIndex()
+  jQuery('#fodder_header').append """
+    <div class="fodder row">
+      <div class="two columns"><input type="text" id="fodder_name_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_solids_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_energy_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_protein_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_calcium_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_phosphor_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_magnesium_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_selenium_#{id}" /></div>
+      <div class="two column" id="add_fodder">Lägg till nytt foder</div>
+    </div>
+  """
+
 jQuery ->
+  addFodder()
+  
   jQuery('#add_fodder').live 'click', ->
-    fodder_list.append new Fodder
-    jQuery('#fodder_header').append """
-      <div class="fodder row">
-        <div class="two columns"><input type="text" id="fodder_name_#{fodder_list.lastIndex()}" /></div>
-        <div class="one column"><input type="text" id="fodder_solids" /></div>
-        <div class="one column"><input type="text" id="fodder_energy" /></div>
-        <div class="one column"><input type="text" id="fodder_protein" /></div>
-        <div class="one column"><input type="text" id="fodder_calcium" /></div>
-        <div class="one column"><input type="text" id="fodder_phosphor" /></div>
-        <div class="one column"><input type="text" id="fodder_magnesium" /></div>
-        <div class="one column"><input type="text" id="fodder_selenium" /></div>
-        <div class="two column" id="add_fodder">Lägg till nytt foder</div>
-      </div>
-    """
+    addFodder()
+  
+  jQuery('.fodder div input').live 'keyup', ->
+    idString = jQuery(this).attr('id')
+    [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
+    fodder_list[elementId][elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
