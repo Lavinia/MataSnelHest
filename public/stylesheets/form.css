@@ -1,12 +1,9 @@
-#fodder {
-  display: inline !important;
+.fodder div {
+  margin-bottom: 0 !important;
+
 }
 
-.fodder_class {
-  display: inline !important;
+.fodder div input {
+  margin-bottom: 0 !important;
+  
 }
-
-td {
-  display:inline;
-}
-
