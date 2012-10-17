@@ -15,14 +15,18 @@
 
   jQuery(function() {
     jQuery("#fodder_amount_0").live('keyup', function() {
-      var amount, calculatedMJ, calculatedProtein, mj, protein;
+      var amount, elementId, elementName, idString, nutrient, nutrion_array, nutrition, _i, _len, _matchData, _ref, _results;
+      nutrion_array = ['solids', 'energy', 'protein', 'calcium', 'phosphor', 'magnesium', 'selenium'];
+      idString = jQuery(this).attr('id');
+      _ref = idString.match(/_([a-z]+)_(\d+)/), _matchData = _ref[0], elementName = _ref[1], elementId = _ref[2];
       amount = jQuery(this).val();
-      mj = jQuery("#fodder_energy_0").val();
-      protein = jQuery("#fodder_protein_0").val();
-      calculatedMJ = amount * mj;
-      calculatedProtein = amount * protein;
-      jQuery('#total_energy').val(calculatedMJ);
-      return jQuery('#total_protein').val(calculatedProtein);
+      _results = [];
+      for (_i = 0, _len = nutrion_array.length; _i < _len; _i++) {
+        nutrition = nutrion_array[_i];
+        nutrient = jQuery("#fodder_" + nutrition + "_0").val();
+        _results.push(jQuery("#total_" + nutrition).val(nutrient * amount));
+      }
+      return _results;
     });
     addFodder();
     jQuery('#add_fodder').live('click', function() {

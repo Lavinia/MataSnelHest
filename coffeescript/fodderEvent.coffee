@@ -24,15 +24,20 @@ jQuery ->
 
   # TODO:
   #this need refactoring:
-  # 1. make it work for 2 different nutritions.
+  # 1. make it work for different nutritions. V
+  # 2. make it update when changing ANY row, not only amount.
+  # 3. make it work with more fodders. # use idString
+
+
   jQuery("#fodder_amount_0").live 'keyup', ->
+    nutrion_array = ['solids', 'energy', 'protein', 'calcium', 'phosphor', 'magnesium', 'selenium']
+    idString = jQuery(this).attr('id')
+    [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
     amount = jQuery(this).val()
-    mj = jQuery("#fodder_energy_0").val()
-    protein = jQuery("#fodder_protein_0").val()
-    calculatedMJ = amount * mj
-    calculatedProtein = amount * protein
-    jQuery('#total_energy').val(calculatedMJ)
-    jQuery('#total_protein').val(calculatedProtein)
+
+    for nutrition in nutrion_array
+      nutrient = jQuery("#fodder_#{nutrition}_0").val()
+      jQuery("#total_#{nutrition}").val(nutrient * amount)
 
   addFodder()
 
