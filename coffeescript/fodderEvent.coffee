@@ -8,6 +8,7 @@ addFodder = () ->
   jQuery('#fodder_header').append """
     <div class="fodder row">
       <div class="two columns"><input type="text" id="fodder_name_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_amount_#{id}" /></div>
       <div class="one column"><input type="text" id="fodder_solids_#{id}" /></div>
       <div class="one column"><input type="text" id="fodder_energy_#{id}" /></div>
       <div class="one column"><input type="text" id="fodder_protein_#{id}" /></div>
@@ -20,11 +21,24 @@ addFodder = () ->
   """
 
 jQuery ->
+
+  # TODO:
+  #this need refactoring:
+  # 1. make it work for 2 different nutritions.
+  jQuery("#fodder_amount_0").live 'keyup', ->
+    amount = jQuery(this).val()
+    mj = jQuery("#fodder_energy_0").val()
+    protein = jQuery("#fodder_protein_0").val()
+    calculatedMJ = amount * mj
+    calculatedProtein = amount * protein
+    jQuery('#total_energy').val(calculatedMJ)
+    jQuery('#total_protein').val(calculatedProtein)
+
   addFodder()
-  
+
   jQuery('#add_fodder').live 'click', ->
     addFodder()
-  
+
   jQuery('.fodder div input').live 'keyup', ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)

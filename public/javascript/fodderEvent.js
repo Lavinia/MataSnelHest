@@ -10,10 +10,20 @@
     var id;
     fodder_list.append(new Fodder);
     id = fodder_list.lastIndex();
-    return jQuery('#fodder_header').append("<div class=\"fodder row\">\n  <div class=\"two columns\"><input type=\"text\" id=\"fodder_name_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_solids_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_energy_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_protein_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_calcium_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_phosphor_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_magnesium_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_selenium_" + id + "\" /></div>\n  <div class=\"two column\" id=\"add_fodder\">Lägg till nytt foder</div>\n</div>");
+    return jQuery('#fodder_header').append("<div class=\"fodder row\">\n  <div class=\"two columns\"><input type=\"text\" id=\"fodder_name_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_amount_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_solids_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_energy_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_protein_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_calcium_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_phosphor_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_magnesium_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_selenium_" + id + "\" /></div>\n  <div class=\"two column\" id=\"add_fodder\">Lägg till nytt foder</div>\n</div>");
   };
 
   jQuery(function() {
+    jQuery("#fodder_amount_0").live('keyup', function() {
+      var amount, calculatedMJ, calculatedProtein, mj, protein;
+      amount = jQuery(this).val();
+      mj = jQuery("#fodder_energy_0").val();
+      protein = jQuery("#fodder_protein_0").val();
+      calculatedMJ = amount * mj;
+      calculatedProtein = amount * protein;
+      jQuery('#total_energy').val(calculatedMJ);
+      return jQuery('#total_protein').val(calculatedProtein);
+    });
     addFodder();
     jQuery('#add_fodder').live('click', function() {
       return addFodder();

@@ -38,14 +38,40 @@
 	<!-- Primary Page Layout -->
 
 	<div class="container">
-		
+
 		<!-- Header -->
 		<div class="sixteen columns">
 			<h1 class="remove-bottom" style="margin-top: 40px">Mata Snel Hest</h1>
 			<h5>Version 0.0.1</h5>
 			<hr />
 		</div>
-		
+
+		<!-- Fodder information -->
+		<div class="thirteen columns silver" id="fodder_header">
+			<h3>Tillgängliga fodermedel</h3>
+			<div class="two columns">Namn</div>
+			<div class="one columns">Antal</div>
+			<div class="one column">TS</div>
+			<div class="one column">MJ</div>
+			<div class="one column">SmRP</div>
+			<div class="one column">Ca</div>
+			<div class="one column">P</div>
+			<div class="one column">Mg</div>
+			<div class="one column">Se</div>
+			<br/>
+		</div>
+		<div class="fodder row thirteen columns silver" id="fodder_calculator">
+      <div class="two columns"><input type="text" id="fodder_name" placeholder="SUMMA" /></div>
+      <div class="one columns"><input type="text" id="fodder_amount" /></div>
+      <div class="one column"><input type="text" id="total_solids" /></div>
+      <div class="one column"><input type="text" id="total_energy" /></div>
+      <div class="one column"><input type="text" id="total_protein" /></div>
+      <div class="one column"><input type="text" id="total_calcium" /></div>
+      <div class="one column"><input type="text" id="total_phosphor" /></div>
+      <div class="one column"><input type="text" id="total_magnesium" /></div>
+      <div class="one column"><input type="text" id="total_selenium" /></div>
+    </div>
+
 		<!-- Horse information -->
 		<div class="four columns khaki">
 			<h3>Din häst</h3>
@@ -56,7 +82,7 @@
 					<input type="text" id="weight" />
 					<p class="error three columns alpha"></p>
 				</div>
-				
+
 				<div class="row">
 					<div class="two columns alpha">
 						<fieldset>
@@ -65,19 +91,19 @@
 								<input type="radio" name="gender" value="mare" id="genderMare">
 								<span>sto</span>
 							</label>
-					
+
 							<label for="genderGelding">
 								<input type="radio" name="gender" value="gelding" id="genderGelding">
 								<span>valack</span>
 							</label>
-					
+
 							<label for="genderStallion">
 								<input type="radio" name="gender" value="stallion" id="genderStallion">
 								<span>hingst</span>
 							</label>
 						</fieldset>
 					</div>
-				
+
 					<div class="two columns omega">
 						<fieldset>
 							<label for="">Typ av häst</label>
@@ -85,12 +111,12 @@
 								<input type="radio" name="feedType" value="easy" id="feedTypeEasy">
 								<span>lättfödd</span>
 							</label>
-					
+
 							<label for="feedTypeEasy">
 								<input type="radio" name="feedType" value="normal" id="feedTypeNormal">
 								<span>normal</span>
 							</label>
-					
+
 							<label for="feedTypeEasy">
 								<input type="radio" name="feedType" value="hard" id="feedTypeHard">
 								<span>svårfödd</span>
@@ -98,7 +124,7 @@
 						</fieldset>
 					</div>
 				</div>
-				
+
 				<h4>Hur mycket arbetar din häst?</h4>
 				<div class="row">
 					<label for="days-per-week">Dagar/vecka</label>
@@ -125,23 +151,9 @@
 				</div>
 			</form>
 		</div>
-		
-		<!-- Fodder information -->
-		<div class="twelve columns silver" id="fodder_header">
-			<h3>Tillgängliga fodermedel</h3>
-			<div class="two columns">Namn</div>
-			<div class="one column">TS</div>
-			<div class="one column">MJ</div>
-			<div class="one column">SmRP</div>
-			<div class="one column">Ca</div>
-			<div class="one column">P</div>
-			<div class="one column">Mg</div>
-			<div class="one column">Se</div>
-			<br/>
-		</div>
 
 		<!-- Fooder calculation -->
-		<div class="sixteen columns limeGreen">
+		<div class="twelve columns limeGreen">
 			<h3>Foderstat</h3>
 			<h3>Din hästs näringsbehov</h3>
 			<ul class="square">
@@ -158,7 +170,7 @@
 		<!-- Footer -->
 		<div class="sixteen columns">
 			<hr />
-			<p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and 
+			<p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and
 			Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).</p>
 		</div>
 
