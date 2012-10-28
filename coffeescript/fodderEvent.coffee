@@ -19,14 +19,8 @@ addFodder = () ->
       <div class="two column" id="add_fodder">Lägg till nytt foder</div>
     </div>
   """
-addTotalAmount = () ->
-  console.log 'dog'
-
 
 jQuery ->
-  #adds total amount of fodders in the sum part.
-  addTotalAmount()
-
   addFodder()
 
   jQuery('#add_fodder').live 'click', ->
@@ -38,3 +32,9 @@ jQuery ->
     fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
     totals = fodder_list.calculate()
     jQuery('#total_solids').val(totals.solids)
+    jQuery('#total_energy').val(totals.energy)
+    jQuery('#total_protein').val(totals.protein)
+    jQuery('#total_calcium').val(totals.calcium)
+    jQuery('#total_phosphor').val(totals.phosphor)
+    jQuery('#total_magnesium').val(totals.magnesium)
+    jQuery('#total_selenium').val(totals.selenium)
