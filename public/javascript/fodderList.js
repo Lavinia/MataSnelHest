@@ -7,13 +7,14 @@
     FodderList.name = 'FodderList';
 
     function FodderList() {
+      this._fodders = [];
       this._nextId = -1;
     }
 
     FodderList.prototype.append = function(element) {
       var id;
       id = this.nextId();
-      return this[id] = element;
+      return this._fodders[id] = element;
     };
 
     FodderList.prototype.nextId = function() {
@@ -22,6 +23,35 @@
 
     FodderList.prototype.lastIndex = function() {
       return this._nextId;
+    };
+
+    FodderList.prototype.getFodderByIndex = function(index) {
+      return this._fodders[index];
+    };
+
+    FodderList.prototype.calculate = function() {
+      var fodder, totals, _i, _len, _ref;
+      totals = {
+        energy: 0,
+        solids: 0,
+        protein: 0,
+        calcium: 0,
+        phosphor: 0,
+        magnesium: 0,
+        selenium: 0
+      };
+      _ref = this._fodders;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        fodder = _ref[_i];
+        totals.solids += fodder.solids * fodder.amount;
+        totals.energy += fodder.energy * fodder.amount;
+        totals.protein += fodder.protein * fodder.amount;
+        totals.calcium += fodder.calcium * fodder.amount;
+        totals.phosphor += fodder.phosphor * fodder.amount;
+        totals.magnesium += fodder.magnesium * fodder.amount;
+        totals.selenium += fodder.selenium * fodder.amount;
+      }
+      return totals;
     };
 
     return FodderList;

@@ -6,14 +6,27 @@
 
     Fodder.name = 'Fodder';
 
-    function Fodder() {
-      this.name = null;
-      this.solids = null;
-      this.energy = null;
+    function Fodder(options) {
+      if (options == null) {
+        options = {};
+      }
+      this.name = options['name'] || '';
+      this.amount = options['amount'] || 0;
+      this.solids = options['solids'] || 0;
+      this.energy = options['energy'] || 0;
+      this.protein = options['protein'] || 0;
+      this.calcium = options['calcium'] || 0;
+      this.phosphor = options['phosphor'] || 0;
+      this.magnesium = options['magnesium'] || 0;
+      this.selenium = options['selenium'] || 0;
     }
 
     Fodder.prototype.setName = function(name) {
       return this.name = name;
+    };
+
+    Fodder.prototype.setAmount = function(amount) {
+      return this.amount = amount;
     };
 
     Fodder.prototype.setSolids = function(solidsInPercent) {
@@ -22,6 +35,26 @@
 
     Fodder.prototype.setEnergy = function(energy) {
       return this.energy = energy;
+    };
+
+    Fodder.prototype.setProtein = function(protein) {
+      return this.protein = protein;
+    };
+
+    Fodder.prototype.setCalcium = function(calcium) {
+      return this.calcium = calcium;
+    };
+
+    Fodder.prototype.setPhosphor = function(phosphor) {
+      return this.phosphor = phosphor;
+    };
+
+    Fodder.prototype.setMagnesium = function(magnesium) {
+      return this.magnesium = magnesium;
+    };
+
+    Fodder.prototype.setSelenium = function(selenium) {
+      return this.selenium = selenium;
     };
 
     return Fodder;

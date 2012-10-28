@@ -38,16 +38,16 @@
 	<!-- Primary Page Layout -->
 
 	<div class="container">
-		
+
 		<!-- Header -->
 		<div class="sixteen columns">
 			<h1 class="remove-bottom" style="margin-top: 40px">Mata Snel Hest</h1>
 			<h5>Version 0.0.1</h5>
 			<hr />
 		</div>
-		
+
 		<!-- Horse information -->
-		<div class="four columns khaki">
+		<div class="sixteen columns khaki">
 			<h3>Din häst</h3>
 			<form id="horseInfo">
 
@@ -56,7 +56,7 @@
 					<input type="text" id="weight" />
 					<p class="error three columns alpha"></p>
 				</div>
-				
+
 				<div class="row">
 					<div class="two columns alpha">
 						<fieldset>
@@ -65,19 +65,19 @@
 								<input type="radio" name="gender" value="mare" id="genderMare">
 								<span>sto</span>
 							</label>
-					
+
 							<label for="genderGelding">
 								<input type="radio" name="gender" value="gelding" id="genderGelding">
 								<span>valack</span>
 							</label>
-					
+
 							<label for="genderStallion">
 								<input type="radio" name="gender" value="stallion" id="genderStallion">
 								<span>hingst</span>
 							</label>
 						</fieldset>
 					</div>
-				
+
 					<div class="two columns omega">
 						<fieldset>
 							<label for="">Typ av häst</label>
@@ -85,59 +85,46 @@
 								<input type="radio" name="feedType" value="easy" id="feedTypeEasy">
 								<span>lättfödd</span>
 							</label>
-					
+
 							<label for="feedTypeEasy">
 								<input type="radio" name="feedType" value="normal" id="feedTypeNormal">
 								<span>normal</span>
 							</label>
-					
+
 							<label for="feedTypeEasy">
 								<input type="radio" name="feedType" value="hard" id="feedTypeHard">
 								<span>svårfödd</span>
 							</label>
 						</fieldset>
 					</div>
+					<div class="five columns">
+					<h4>Hur mycket arbetar din häst?</h4>
+					<div class="row three columns">
+						<label for="days-per-week">Dagar/vecka</label>
+						<select class="three columns alpha" name="days-per-week" id="days-per-week" size="1">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						</select>
+					</div>
+					<div class="row three columns">
+						<label for="walk">Skritt i minuter/dag</label>
+						<input class="three columns alpha" type="text" id="walk" />
+						<p class="error three columns alpha"></p>
+					</div>
+					<div class="row three columns">
+						<label for="trot">Trav/galopp i minuter/dag</label>
+						<input class="three columns alpha" type="text" id="trot" />
+						<p class="error three columns alpha"></p>
+					</div>
 				</div>
-				
-				<h4>Hur mycket arbetar din häst?</h4>
-				<div class="row">
-					<label for="days-per-week">Dagar/vecka</label>
-					<select class="three columns alpha" name="days-per-week" id="days-per-week" size="1">
-						<option value="0">0</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-					</select>
-				</div>
-				<div class="row">
-					<label for="walk">Skritt i minuter/dag</label>
-					<input class="three columns alpha" type="text" id="walk" />
-					<p class="error three columns alpha"></p>
-				</div>
-				<div class="row">
-					<label for="trot">Trav/galopp i minuter/dag</label>
-					<input class="three columns alpha" type="text" id="trot" />
-					<p class="error three columns alpha"></p>
 				</div>
 			</form>
-		</div>
-		
-		<!-- Fodder information -->
-		<div class="twelve columns silver" id="fodder_header">
-			<h3>Tillgängliga fodermedel</h3>
-			<div class="two columns">Namn</div>
-			<div class="one column">TS</div>
-			<div class="one column">MJ</div>
-			<div class="one column">SmRP</div>
-			<div class="one column">Ca</div>
-			<div class="one column">P</div>
-			<div class="one column">Mg</div>
-			<div class="one column">Se</div>
-			<br/>
 		</div>
 
 		<!-- Fooder calculation -->
@@ -155,10 +142,52 @@
 			</ul>
 		</div>
 
+		<!-- Fodder information -->
+		<div class="sixteen columns silver" id="fodder_header">
+			<h3>Tillgängliga fodermedel</h3>
+			<div class="two columns">Namn</div>
+			<div class="one columns">Antal</div>
+			<div class="one column">TS</div>
+			<div class="one column">MJ</div>
+			<div class="one column">SmRP</div>
+			<div class="one column">Ca</div>
+			<div class="one column">P</div>
+			<div class="one column">Mg</div>
+			<div class="one column">Se</div>
+			<br/>
+		</div>
+
+    <!-- Fodder calculation -->
+		<div class="sixteen columns silver" id="calculation_header">
+			<h3>Beräkna foderstat</h3>
+			<div class="two columns">____--</div>
+			<div class="one columns">Antal</div>
+			<div class="one column">TS</div>
+			<div class="one column">MJ</div>
+			<div class="one column">SmRP</div>
+			<div class="one column">Ca</div>
+			<div class="one column">P</div>
+			<div class="one column">Mg</div>
+			<div class="one column">Se</div>
+			<br/>
+		</div>
+
+		<div class="calculation row sixteen columns silver" id="fodder_calculator">
+      <div class="two columns"><input type="text" id="fodder_name" placeholder="SUMMA" /></div>
+      <div class="one columns"><input type="text" id="fodder_amount" /></div>
+      <div class="one column"><input type="text" id="total_solids" /></div>
+      <div class="one column"><input type="text" id="total_energy" /></div>
+      <div class="one column"><input type="text" id="total_protein" /></div>
+      <div class="one column"><input type="text" id="total_calcium" /></div>
+      <div class="one column"><input type="text" id="total_phosphor" /></div>
+      <div class="one column"><input type="text" id="total_magnesium" /></div>
+      <div class="one column"><input type="text" id="total_selenium" /></div>
+    </div>
+
 		<!-- Footer -->
 		<div class="sixteen columns">
 			<hr />
-			<p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and 
+			<p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and
 			Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).</p>
 		</div>
 

@@ -8,6 +8,7 @@ addFodder = () ->
   jQuery('#fodder_header').append """
     <div class="fodder row">
       <div class="two columns"><input type="text" id="fodder_name_#{id}" /></div>
+      <div class="one column"><input type="text" id="fodder_amount_#{id}" /></div>
       <div class="one column"><input type="text" id="fodder_solids_#{id}" /></div>
       <div class="one column"><input type="text" id="fodder_energy_#{id}" /></div>
       <div class="one column"><input type="text" id="fodder_protein_#{id}" /></div>
@@ -21,11 +22,19 @@ addFodder = () ->
 
 jQuery ->
   addFodder()
-  
+
   jQuery('#add_fodder').live 'click', ->
     addFodder()
-  
+
   jQuery('.fodder div input').live 'keyup', ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
-    fodder_list[elementId][elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
+    fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
+    totals = fodder_list.calculate()
+    jQuery('#total_solids').val(totals.solids)
+    jQuery('#total_energy').val(totals.energy)
+    jQuery('#total_protein').val(totals.protein)
+    jQuery('#total_calcium').val(totals.calcium)
+    jQuery('#total_phosphor').val(totals.phosphor)
+    jQuery('#total_magnesium').val(totals.magnesium)
+    jQuery('#total_selenium').val(totals.selenium)
