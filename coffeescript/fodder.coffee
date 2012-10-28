@@ -1,11 +1,15 @@
 class Fodder
   constructor: ->
     @name = null
+    @amount = null
     @solids = null
     @energy = null
-    
+
   setName: (name) ->
     @name = name
+
+  setAmount: (amount) ->
+    @amount = amount
 
   setSolids: (solidsInPercent) ->
     @solids = solidsInPercent

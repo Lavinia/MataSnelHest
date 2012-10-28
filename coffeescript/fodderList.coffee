@@ -1,16 +1,29 @@
 class FodderList
   constructor: ->
+    @_fodders = []
     @_nextId = -1
 
   append: (element) ->
     id = this.nextId()
-    this[id] = element
+    @_fodders[id] = element
 
   nextId: ->
     @_nextId = @_nextId + 1
 
   lastIndex: ->
     @_nextId
+
+  getFodderByIndex: (index) ->
+    @_fodders[index]
+
+  calculate: ->
+    totals = { energy: 0, solids: 0 }
+#
+#  #  for fodder in @_fodders
+#  #    totals.energy += fodder.energy * fodder.amount
+  #    totals.solids += fodder.solids * fodder.amount
+
+    #totals
 
 root = exports ? window
 root.FodderList = FodderList

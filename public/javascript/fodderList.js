@@ -7,13 +7,14 @@
     FodderList.name = 'FodderList';
 
     function FodderList() {
+      this._fodders = [];
       this._nextId = -1;
     }
 
     FodderList.prototype.append = function(element) {
       var id;
       id = this.nextId();
-      return this[id] = element;
+      return this._fodders[id] = element;
     };
 
     FodderList.prototype.nextId = function() {
@@ -22,6 +23,18 @@
 
     FodderList.prototype.lastIndex = function() {
       return this._nextId;
+    };
+
+    FodderList.prototype.getFodderByIndex = function(index) {
+      return this._fodders[index];
+    };
+
+    FodderList.prototype.calculate = function() {
+      var totals;
+      return totals = {
+        energy: 0,
+        solids: 0
+      };
     };
 
     return FodderList;

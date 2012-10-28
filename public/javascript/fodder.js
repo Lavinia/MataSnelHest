@@ -8,12 +8,17 @@
 
     function Fodder() {
       this.name = null;
+      this.amount = null;
       this.solids = null;
       this.energy = null;
     }
 
     Fodder.prototype.setName = function(name) {
       return this.name = name;
+    };
+
+    Fodder.prototype.setAmount = function(amount) {
+      return this.amount = amount;
     };
 
     Fodder.prototype.setSolids = function(solidsInPercent) {

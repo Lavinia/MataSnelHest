@@ -19,25 +19,13 @@ addFodder = () ->
       <div class="two column" id="add_fodder">Lägg till nytt foder</div>
     </div>
   """
+addTotalAmount = () ->
+  console.log 'dog'
+
 
 jQuery ->
-
-  # TODO:
-  #this need refactoring:
-  # 1. make it work for different nutritions. V
-  # 2. make it update when changing ANY row, not only amount.
-  # 3. make it work with more fodders. # use idString
-
-
-  jQuery("#fodder_amount_0").live 'keyup', ->
-    nutrion_array = ['solids', 'energy', 'protein', 'calcium', 'phosphor', 'magnesium', 'selenium']
-    idString = jQuery(this).attr('id')
-    [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
-    amount = jQuery(this).val()
-
-    for nutrition in nutrion_array
-      nutrient = jQuery("#fodder_#{nutrition}_0").val()
-      jQuery("#total_#{nutrition}").val(nutrient * amount)
+  #adds total amount of fodders in the sum part.
+  addTotalAmount()
 
   addFodder()
 
@@ -47,4 +35,6 @@ jQuery ->
   jQuery('.fodder div input').live 'keyup', ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
-    fodder_list[elementId][elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
+    fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
+    totals = fodder_list.calculate()
+    jQuery('#total_solids').val(totals.solids)
