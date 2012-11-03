@@ -20,7 +20,8 @@ class FodderList
     totals = { energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0 }
 
     for fodder in @_fodders
-      totals.solids += fodder.solids * fodder.amount
+      solids_in_kilos = (fodder.solids / 100) * fodder.amount
+      totals.solids += Math.round(solids_in_kilos * 100) / 100
       totals.energy += fodder.energy * fodder.amount
       totals.protein += fodder.protein * fodder.amount
       totals.calcium += fodder.calcium * fodder.amount
