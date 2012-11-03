@@ -10,7 +10,7 @@
     var id;
     fodder_list.append(new Fodder);
     id = fodder_list.lastIndex();
-    return jQuery('#fodder_header').append("<div class=\"fodder row\">\n  <div class=\"two columns\"><input type=\"text\" id=\"fodder_name_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_amount_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_solids_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_energy_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_protein_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_calcium_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_phosphor_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_magnesium_" + id + "\" /></div>\n  <div class=\"one column\"><input type=\"text\" id=\"fodder_selenium_" + id + "\" /></div>\n  <div class=\"two column\" id=\"add_fodder\">Lägg till nytt foder</div>\n</div>");
+    return jQuery('#fodder_header_table').append("<tr>\n  <td><input type=\"text\" class=\"fodder-name\" id=\"fodder_name_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_amount_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_solids_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_energy_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_protein_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_calcium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_phosphor_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_magnesium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_selenium_" + id + "\" /></td>\n  <td><div id=\"add_fodder\">Lägg till nytt foder</div></td>\n</tr>\n");
   };
 
   jQuery(function() {
@@ -18,7 +18,7 @@
     jQuery('#add_fodder').live('click', function() {
       return addFodder();
     });
-    return jQuery('.fodder div input').live('keyup', function() {
+    return jQuery('#fodder_header_table input').live('keyup', function() {
       var elementId, elementName, idString, totals, _matchData, _ref;
       idString = jQuery(this).attr('id');
       _ref = idString.match(/_([a-z]+)_(\d+)/), _matchData = _ref[0], elementName = _ref[1], elementId = _ref[2];

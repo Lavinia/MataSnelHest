@@ -1,0 +1,52 @@
+td input {
+  width: 40px;
+}
+
+.horse_information {
+  width: 500px;
+  float:left;
+}
+
+.need_calculation {
+  width: 500px;
+  float:left;
+  clear: right;
+}
+
+.fodder_silver {
+  float:left;
+  clear: both;
+}
+
+fieldset {
+  width: 400px;
+}
+
+legend {
+  text-align: center;
+}
+
+#fodder_header {
+  float:left;
+}
+
+#calculation_header {
+  float: left;
+}
+
+#fodder_calculator {
+  float:left;
+}
+
+.add_fodder {
+  width:40px;
+}
+
+
+.table_test {
+  clear: both;
+}
+
+.fodder-name {
+  width: 100px;
+}

@@ -1,194 +1,171 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Mata Snel Hest</title>
-	<meta name="description" content="Foderstatsuträkning för häst">
-	<meta name="author" content="Kim Persson (@Lavinia666), Lennart Fridén (@DevLCSC)">
+  <meta charset="utf-8">
+  <title>Mata Snel Hest</title>
+  <meta name="description" content="Foderstatsuträkning för häst">
+  <meta name="author" content="Kim Persson (@Lavinia666), Lennart Fridén (@DevLCSC)">
 
-	<link rel="stylesheet" href="stylesheets/colours.css">
-	<link rel="stylesheet" href="stylesheets/form.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="stylesheets/colours.css">
+  <link rel="stylesheet" href="stylesheets/layout.css" type="text/css" media="screen" charset="utf-8">
 
 
-	<!-- Favicons -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
-
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
 </head>
 <body>
+<div class="container">
 
-	<!-- Primary Page Layout -->
+<!-- Header -->
+  <div class="header">
+    <h1 class="remove-bottom" style="margin-top: 40px">Mata Snel Hest</h1>
+    <h5>Version 0.0.1</h5>
+    <hr />
+  </div>
 
-	<div class="container">
+<!-- Horse information -->
+  <div class="khaki horse_information">
+    <h3>Din häst</h3>
+    <form id="horseInfo">
+      <div>
+        <label for="weight">Vikt</label>
+        <input type="text" id="weight" />
+        <p class="error"></p>
+      </div>
 
-		<!-- Header -->
-		<div class="">
-			<h1 class="remove-bottom" style="margin-top: 40px">Mata Snel Hest</h1>
-			<h5>Version 0.0.1</h5>
-			<hr />
-		</div>
+      <div>
+        <fieldset>
+          <legend>Kön</legend>
+          <label for="genderMare">
+            <input type="radio" name="gender" value="mare" id="genderMare">
+            <span>sto</span>
+          </label>
 
-		<!-- Horse information -->
-		<div class="khaki">
-			<h3>Din häst</h3>
-			<form id="horseInfo">
+          <label for="genderGelding">
+            <input type="radio" name="gender" value="gelding" id="genderGelding">
+            <span>valack</span>
+          </label>
 
-				<div >
-					<label for="weight">Vikt</label>
-					<input type="text" id="weight" />
-					<p class="error"></p>
-				</div>
+          <label for="genderStallion">
+            <input type="radio" name="gender" value="stallion" id="genderStallion">
+            <span>hingst</span>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Typ av häst</legend>
+          <label for="feedTypeEasy">
+            <input type="radio" name="feedType" value="easy" id="feedTypeEasy">
+            <span>lättfödd</span>
+          </label>
 
-				<div class="row">
-					<div>
-						<fieldset>
-							<label for="">Kön</label>
-							<label for="genderMare">
-								<input type="radio" name="gender" value="mare" id="genderMare">
-								<span>sto</span>
-							</label>
+          <label for="feedTypeNormal">
+            <input type="radio" name="feedType" value="normal" id="feedTypeNormal">
+            <span>normal</span>
+          </label>
 
-							<label for="genderGelding">
-								<input type="radio" name="gender" value="gelding" id="genderGelding">
-								<span>valack</span>
-							</label>
+          <label for="feedTypeHard">
+            <input type="radio" name="feedType" value="hard" id="feedTypeHard">
+            <span>svårfödd</span>
+          </label>
+        </fieldset>
 
-							<label for="genderStallion">
-								<input type="radio" name="gender" value="stallion" id="genderStallion">
-								<span>hingst</span>
-							</label>
-						</fieldset>
-					</div>
+        <fieldset>
+          <legend>Hur mycket arbetar din häst?</legend>
+          <label for="days-per-week">Dagar/vecka</label>
+            <select name="days-per-week" id="days-per-week" size="1">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
 
-					<div>
-						<fieldset>
-							<label for="">Typ av häst</label>
-							<label for="feedTypeEasy">
-								<input type="radio" name="feedType" value="easy" id="feedTypeEasy">
-								<span>lättfödd</span>
-							</label>
+          <div>
+            <label for="walk">Skritt i minuter/dag</label>
+            <input type="text" id="walk" />
+            <p class="error three  alpha"></p>
+          </div>
+          <div>
+            <label for="trot">Trav/galopp i minuter/dag</label>
+            <input type="text" id="trot" />
+            <p class="error"></p>
+          </div> <!-- end trot -->
+        </fieldset>
+      </div>
+    </form>
+  </div> <!-- End horse_info -->
 
-							<label for="feedTypeEasy">
-								<input type="radio" name="feedType" value="normal" id="feedTypeNormal">
-								<span>normal</span>
-							</label>
+<div class="table_test">
+    <h1>Tillgängliga foder</h1>
 
-							<label for="feedTypeEasy">
-								<input type="radio" name="feedType" value="hard" id="feedTypeHard">
-								<span>svårfödd</span>
-							</label>
-						</fieldset>
-					</div>
-					<div>
-						<h4>Hur mycket arbetar din häst?</h4>
-						<div class=>
-							<label for="days-per-week">Dagar/vecka</label>
-							<select name="days-per-week" id="days-per-week" size="1">
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-							</select>
-						</div>
-						<div>
-							<label for="walk">Skritt i minuter/dag</label>
-							<input type="text" id="walk" />
-							<p class="error three  alpha"></p>
-						</div>
-						<div>
-							<label for="trot">Trav/galopp i minuter/dag</label>
-							<input type="text" id="trot" />
-							<p class="error"></p>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
+    <table border="1" id="fodder_header_table">
+      <tr>
+        <th>Namn</th>
+        <th>Antal</th>
+        <th>TS</th>
+        <th>MJ</th>
+        <th>Smrp</th>
+        <th>Ca</th>
+        <th>P</th>
+        <th>Mg</th>
+        <th>Se</th>
+        <th></th>
+      </tr>
+    </table>
+    <h1>Summerat foder</h1>
+    <table border="1">
+      <tr>
+        <th></th>
+        <th>TS</th>
+        <th>MJ</th>
+        <th>Smrp</th>
+        <th>Ca</th>
+        <th>P</th>
+        <th>Mg</th>
+        <th>Se</th>
+      </tr>
+      <tr>
+        <th>Behov</th>
+        <td id="need_solids"></td>
+        <td id="need_energy"></td>
+        <td id="need_protein"></td>
+        <td id="need_calcium"></td>
+        <td id="need_phosphor"></td>
+        <td id="need_magnesium"></td>
+        <td id="need_selenium"></td>
+      </tr>
+      <tr>
+        <th>Summa</th>
+        <td><input type="text" id="total_solids" /></td>
+        <td><input type="text" id="total_energy" /></td>
+        <td><input type="text" id="total_protein" /></td>
+        <td><input type="text" id="total_calcium" /></td>
+        <td><input type="text" id="total_phosphor" /></td>
+        <td><input type="text" id="total_magnesium" /></td>
+        <td><input type="text" id="total_selenium" /></td>
+      </tr>
+    </table>
+  </div>
 
-		<!-- Fooder calculation -->
-		<div class="limeGreen">
-			<h3>Foderstat</h3>
-			<h3>Din hästs näringsbehov</h3>
-			<ul class="square">
-				<li><strong>Torrsubstans</strong>: <span id="needSolids"></span></li>
-				<li><strong>Energi</strong>: <span id="needEnergy"></span></li>
-				<li><strong>Smältbart råprotein</strong>: <span id="needProtein"></span></li>
-				<li><strong>Kalcium</strong>: <span id="needCalcium"></span></li>
-				<li><strong>Fosfor</strong>: <span id="needPhosphor"></span></li>
-				<li><strong>Magnesium</strong>: <span id="needMagnesium"></span></li>
-				<li><strong>Selen</strong>: <span id="needSelenium"></span></li>
-			</ul>
-		</div>
 
-		<!-- Fodder information -->
-		<div class="silver" id="fodder_header">
-			<h3>Tillgängliga fodermedel</h3>
-			<div>Namn</div>
-			<div>Antal</div>
-			<div>TS</div>
-			<div>MJ</div>
-			<div>SmRP</div>
-			<div>Ca</div>
-			<div>P</div>
-			<div>Mg</div>
-			<div>Se</div>
-			<br/>
-		</div>
+</div> <!-- End container -->
 
-		<!-- Fodder calculation -->
-		<div class="silver" id="calculation_header">
-			<h3>Beräkna foderstat</h3>
-			<div>____--</div>
-			<div>Antal</div>
-			<div>TS</div>
-			<div>MJ</div>
-			<div>SmRP</div>
-			<div>Ca</div>
-			<div>P</div>
-			<div>Mg</div>
-			<div>Se</div>
-			<br/>
-		</div>
+<!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script src="javascript/fodder.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/fodderList.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/horse.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/need.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/horseInfoEvents.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascript/fodderEvent.js" type="text/javascript" charset="utf-8"></script>
 
-		<div class="calculation silver" id="fodder_calculator">
-			<div><input type="text" id="fodder_name" placeholder="SUMMA" /></div>
-			<div><input type="text" id="fodder_amount" /></div>
-			<div><input type="text" id="total_solids" /></div>
-			<div><input type="text" id="total_energy" /></div>
-			<div><input type="text" id="total_protein" /></div>
-			<div><input type="text" id="total_calcium" /></div>
-			<div><input type="text" id="total_phosphor" /></div>
-			<div><input type="text" id="total_magnesium" /></div>
-			<div><input type="text" id="total_selenium" /></div>
-		</div>
-
-		<!-- Footer -->
-		<div>
-			<hr />
-			<p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and
-				Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).</p>
-			</div>
-
-		</div><!-- container -->
-
-		<!-- JS -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-		<script src="javascript/skeleton/tabs.js"></script>
-		<script src="javascript/fodder.js" type="text/javascript" charset="utf-8"></script>
-		<script src="javascript/fodderList.js" type="text/javascript" charset="utf-8"></script>
-		<script src="javascript/horse.js" type="text/javascript" charset="utf-8"></script>
-		<script src="javascript/need.js" type="text/javascript" charset="utf-8"></script>
-		<script src="javascript/horseInfoEvents.js" type="text/javascript" charset="utf-8"></script>
-		<script src="javascript/fodderEvent.js" type="text/javascript" charset="utf-8"></script>
-
-		<!-- End Document -->
-	</body>
-	</html>
+</body>
+</html>
