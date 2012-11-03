@@ -6,8 +6,8 @@
   <meta name="description" content="Foderstatsuträkning för häst">
   <meta name="author" content="Kim Persson (@Lavinia666), Lennart Fridén (@DevLCSC)">
 
-  <link rel="stylesheet" href="stylesheets/colours.css">
-  <link rel="stylesheet" href="stylesheets/layout.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="stylesheets/colours.css"  type="text/css">
+  <link rel="stylesheet" href="stylesheets/layout.css" type="text/css">
 
 
   <!-- Favicons -->
@@ -20,14 +20,13 @@
 <body>
 <div class="container">
 
-<!-- Header -->
+  <!-- Header -->
   <div class="header">
     <h1 class="remove-bottom" style="margin-top: 40px">Mata Snel Hest</h1>
-    <h5>Version 0.0.1</h5>
     <hr />
   </div>
 
-<!-- Horse information -->
+  <!-- Horse information -->
   <div class="khaki horse_information">
     <h3>Din häst</h3>
     <form id="horseInfo">
@@ -55,6 +54,7 @@
             <span>hingst</span>
           </label>
         </fieldset>
+
         <fieldset>
           <legend>Typ av häst</legend>
           <label for="feedTypeEasy">
@@ -102,24 +102,23 @@
     </form>
   </div> <!-- End horse_info -->
 
-<div class="table_test">
-    <h1>Tillgängliga foder</h1>
-
-    <table border="1" id="fodder_header_table">
-      <tr>
-        <th>Namn</th>
-        <th>Antal</th>
-        <th>TS</th>
-        <th>MJ</th>
-        <th>Smrp</th>
-        <th>Ca</th>
-        <th>P</th>
-        <th>Mg</th>
-        <th>Se</th>
-        <th></th>
-      </tr>
-    </table>
-    <h1>Summerat foder</h1>
+<div class="fodder-calculations silver">
+  <h3>Tillgängliga foder</h3>
+  <table border="1" id="fodder_header_table">
+    <tr>
+      <th>Namn</th>
+      <th>Antal</th>
+      <th>TS</th>
+      <th>MJ</th>
+      <th>Smrp</th>
+      <th>Ca</th>
+      <th>P</th>
+      <th>Mg</th>
+      <th>Se</th>
+      <th></th>
+    </tr>
+  </table>
+    <h3>Summerat foder</h3>
     <table border="1">
       <tr>
         <th></th>
@@ -154,6 +153,12 @@
     </table>
   </div>
 
+  <!-- Footer -->
+  <div id="footer">
+    <hr />
+    <p><em>Mata Snel Hest</em> is brought to you by Kim Persson (<a href="http://twitter.com/Lavinia666">@Lavinia666</a>) and
+      Lennart Fridén (<a href="http://twitter.com/DevLCSC">@DevLCSC</a>).</p>
+  </div>
 
 </div> <!-- End container -->
 
