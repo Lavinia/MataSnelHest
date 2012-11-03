@@ -1,0 +1,30 @@
+** BUGS **
+* Avrundar inte TS i uträkningen korrekt
+
+
+** TODO **
+* Avrundning för samtliga näringsämnen
+* Bättre typsnitt
+* Samma storlek i alla fält
+* Avståndet i motionsrutan
+
+
+** NEW THINGS **
+* Röd/grön beroende på om det är för mycket/för lite näring
+* Skriv ut MJ/smrp och Ca/P
+* Övriga vitaminer/mineraler
+* Övriga kvoter
+
+
+** INFORUTA **
+* Vikt
+* Typ av häst
+* Hull
+* Näringsämnen
+
+
+** DREAMS **
+* Avelshästar
+* Unghästar
+* Unghästar i motion
+
