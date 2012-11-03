@@ -31,5 +31,6 @@ class FodderList
 
     totals
 
+
 root = exports ? window
 root.FodderList = FodderList
