@@ -63,6 +63,10 @@ legend {
   width: 100px;
 }
 
+#sum td {
+  width: 40px;
+}
+
 #footer {
   padding-top: 10px;
   clear: both;

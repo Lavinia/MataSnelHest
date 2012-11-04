@@ -19,18 +19,22 @@
       return addFodder();
     });
     return jQuery('#fodder_header_table input').live('keyup', function() {
-      var elementId, elementName, idString, totals, _matchData, _ref;
+      var CaPQuotient, MJperSmrpQuotient, elementId, elementName, idString, totals, _matchData, _ref;
       idString = jQuery(this).attr('id');
       _ref = idString.match(/_([a-z]+)_(\d+)/), _matchData = _ref[0], elementName = _ref[1], elementId = _ref[2];
       fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_" + elementName + "_" + elementId).val();
       totals = fodder_list.calculate();
-      jQuery('#total_solids').val(totals.solids);
-      jQuery('#total_energy').val(totals.energy);
-      jQuery('#total_protein').val(totals.protein);
-      jQuery('#total_calcium').val(totals.calcium);
-      jQuery('#total_phosphor').val(totals.phosphor);
-      jQuery('#total_magnesium').val(totals.magnesium);
-      return jQuery('#total_selenium').val(totals.selenium);
+      jQuery('#total_solids').html(totals.solids);
+      jQuery('#total_energy').html(totals.energy);
+      jQuery('#total_protein').html(totals.protein);
+      jQuery('#total_calcium').html(totals.calcium);
+      jQuery('#total_phosphor').html(totals.phosphor);
+      jQuery('#total_magnesium').html(totals.magnesium);
+      jQuery('#total_selenium').html(totals.selenium);
+      MJperSmrpQuotient = totals.protein / totals.energy;
+      jQuery('#MJSmrp-quotient span').html(MJperSmrpQuotient);
+      CaPQuotient = totals.calcium / totals.phosphor;
+      return jQuery('#CaP-quotient span').html(CaPQuotient);
     });
   });
 

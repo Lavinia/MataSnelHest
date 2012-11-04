@@ -4,6 +4,7 @@
 
 ** TODO **
 * Avrundning för samtliga näringsämnen
+* Avrundning för kvoterna
 * Bättre typsnitt
 * Samma storlek i alla fält
 * Avståndet i motionsrutan
@@ -11,7 +12,6 @@
 
 ** NEW THINGS **
 * Röd/grön beroende på om det är för mycket/för lite näring
-* Skriv ut MJ/smrp och Ca/P
 * Övriga vitaminer/mineraler
 * Övriga kvoter
 
@@ -28,3 +28,6 @@
 * Unghästar
 * Unghästar i motion
 
+
+*** DONE ***
+* Skriv ut MJ/smrp och Ca/P
