@@ -45,4 +45,42 @@ describe 'Fodder', ->
       @fodder.setEnergy 84
       @fodder.energy.should.equal 84
 
+  describe 'protein', ->
+    it 'should be 0 from the beginning', ->
+      @fodder.protein.should.equal 0
 
+    it 'should be able to be set', ->
+      @fodder.setProtein 84
+      @fodder.protein.should.equal 84
+
+  describe 'calcium', ->
+    it 'should be 0 from the beginning', ->
+      @fodder.calcium.should.equal 0
+
+    it 'should be able to be set', ->
+      @fodder.setCalcium 84
+      @fodder.calcium.should.equal 84
+
+  describe 'phosphor', ->
+    it 'should be 0 from the beginning', ->
+      @fodder.phosphor.should.equal 0
+
+    it 'should be able to be set', ->
+      @fodder.setPhosphor 84
+      @fodder.phosphor.should.equal 84
+
+  describe 'magnesium', ->
+    it 'should be 0 from the beginning', ->
+      @fodder.magnesium.should.equal 0
+
+    it 'should be able to be set', ->
+      @fodder.setMagnesium 84
+      @fodder.magnesium.should.equal 84
+
+  describe 'selenium', ->
+    it 'should be 0 from the beginning', ->
+      @fodder.selenium.should.equal 0
+
+    it 'should be able to be set', ->
+      @fodder.setSelenium 84
+      @fodder.selenium.should.equal 84

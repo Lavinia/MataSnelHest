@@ -16,6 +16,10 @@ class FodderList
   getFodderByIndex: (index) ->
     @_fodders[index]
 
+  calculateQoutient: (nutrient1, nutrient2) ->
+    Math.round((nutrient1 / nutrient2) * 10) / 10
+
+
   calculate: ->
     totals = { energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0 }
 

@@ -40,3 +40,15 @@ describe 'FodderList', ->
     fodderList.append new Fodder fodder2
 
     fodderList.calculate().should.eql expected
+
+  it 'calculates the energy protein quotient', ->
+    fodder = { amount: 1, energy: 5.4, protein: 22 }
+    fodderList = new FodderList
+    fodderList.append new Fodder fodder
+    fodderList.calculateQoutient(fodder.protein, fodder.energy).should.eql 4.1
+
+  it 'calculates the energy protein quotient', ->
+    fodder = { amount: 1, calcium: 3.7, phosphor: 2.2 }
+    fodderList = new FodderList
+    fodderList.append new Fodder fodder
+    fodderList.calculateQoutient(fodder.calcium, fodder.phosphor).should.eql 1.7

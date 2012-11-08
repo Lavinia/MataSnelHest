@@ -29,6 +29,10 @@
       return this._fodders[index];
     };
 
+    FodderList.prototype.calculateQoutient = function(nutrient1, nutrient2) {
+      return Math.round((nutrient1 / nutrient2) * 10) / 10;
+    };
+
     FodderList.prototype.calculate = function() {
       var fodder, solids_in_kilos, totals, _i, _len, _ref;
       totals = {

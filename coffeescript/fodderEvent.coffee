@@ -21,6 +21,11 @@ addFodder = () ->
 
   """
 
+calculateCalciumPhosphorQoutient = (totals) ->
+  CaPQuotient = (totals.calcium / totals.phosphor)
+  jQuery('#CaP-quotient span').html(CaPQuotient)
+
+
 jQuery ->
   addFodder()
 
@@ -40,9 +45,5 @@ jQuery ->
     jQuery('#total_magnesium').html(totals.magnesium)
     jQuery('#total_selenium').html(totals.selenium)
 
-    MJperSmrpQuotient = (totals.protein / totals.energy )
-    jQuery('#MJSmrp-quotient span').html(MJperSmrpQuotient)
-
-    CaPQuotient = (totals.calcium / totals.phosphor)
-    jQuery('#CaP-quotient span').html(CaPQuotient)
-
+    jQuery('#MJSmrp-quotient span').html(fodder_list.calculateQoutient(totals.protein, totals.energy))
+    jQuery('#CaP-quotient span').html(fodder_list.calculateQoutient(totals.calcium, totals.phosphor))
