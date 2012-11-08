@@ -21,6 +21,14 @@ td input {
   margin-right: 10px;
 }
 
+#days-per-week {
+  margin-bottom: 15px;
+}
+
+.workload {
+  margin-bottom:5px;
+}
+
 .need_calculation {
   float:left;
 }
