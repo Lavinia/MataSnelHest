@@ -29,8 +29,12 @@
       return this._fodders[index];
     };
 
-    FodderList.prototype.calculateQoutient = function(nutrient1, nutrient2) {
-      return Math.round((nutrient1 / nutrient2) * 10) / 10;
+    FodderList.prototype.calculateQoutient = function(nutrient_nominator, nutrient_denominator) {
+      if (!(nutrient_nominator && nutrient_denominator)) {
+        return "";
+      } else {
+        return Math.round((nutrient_nominator / nutrient_denominator) * 10) / 10;
+      }
     };
 
     FodderList.prototype.calculate = function() {

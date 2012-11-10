@@ -16,8 +16,11 @@ class FodderList
   getFodderByIndex: (index) ->
     @_fodders[index]
 
-  calculateQoutient: (nutrient1, nutrient2) ->
-    Math.round((nutrient1 / nutrient2) * 10) / 10
+  calculateQoutient: (nutrient_nominator, nutrient_denominator) ->
+    unless nutrient_nominator and nutrient_denominator
+      ""
+    else
+      Math.round((nutrient_nominator / nutrient_denominator) * 10) / 10
 
 
   calculate: ->

@@ -52,3 +52,9 @@ describe 'FodderList', ->
     fodderList = new FodderList
     fodderList.append new Fodder fodder
     fodderList.calculateQoutient(fodder.calcium, fodder.phosphor).should.eql 1.7
+
+  it 'returns an empty string when nutrients are missing in quotient', ->
+    fodder = { amount: 1, phosphor: 2.2 }
+    fodderList = new FodderList
+    fodderList.append new Fodder fodder
+    fodderList.calculateQoutient(fodder.calcium, fodder.phosphor).should.eql ""
