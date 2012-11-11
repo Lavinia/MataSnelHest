@@ -103,6 +103,10 @@
       return this.__sufficientMacroMineral(phosphor, this.phosphorInGrams());
     };
 
+    Need.prototype.suffientMagnesium = function(magnesium) {
+      return this.__sufficientMacroMineral(magnesium, this.magnesiumInGrams());
+    };
+
     return Need;
 
   })();

@@ -142,10 +142,10 @@ describe 'Need', ->
 			@need.suffientCalcium(36.00).should.equal true
 		it 'returns false when under the calcium need', ->
 			@need.suffientCalcium(23.99).should.equal false
-		it 'returns false when oven 50% of calcuim need', ->
+		it 'returns false when over 50% of calcuim need', ->
 			@need.suffientCalcium(36.01).should.equal false
 
-	describe 'sufficient protein', ->
+	describe 'sufficient phosphor', ->
 		beforeEach ->
 			@need.phosphorInGrams = -> 24.00
 		it 'returns true when above phosphor need', ->
@@ -153,8 +153,19 @@ describe 'Need', ->
 			@need.suffientPhosphor(36.00).should.equal true
 		it 'returns false when under the phosphor need', ->
 			@need.suffientPhosphor(23.99).should.equal false
-		it 'returns false when oven 50% of calcuim need', ->
+		it 'returns false when over 50% of phosphor need', ->
 			@need.suffientPhosphor(36.01).should.equal false
+
+	describe 'sufficient magnesium', ->
+		beforeEach ->
+			@need.magnesiumInGrams = -> 24.00
+		it 'returns true when above magnesium need', ->
+			@need.suffientMagnesium(24.00).should.equal true
+			@need.suffientMagnesium(36.00).should.equal true
+		it 'returns false when under the magnesium need', ->
+			@need.suffientMagnesium(23.99).should.equal false
+		it 'returns false when over 50% of magnesium need', ->
+			@need.suffientMagnesium(36.01).should.equal false
 
 
 

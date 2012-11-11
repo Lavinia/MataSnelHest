@@ -68,6 +68,8 @@ class Need
 	suffientPhosphor: (phosphor) ->
 		@__sufficientMacroMineral(phosphor, this.phosphorInGrams())
 
+	suffientMagnesium: (magnesium) ->
+		@__sufficientMacroMineral(magnesium, this.magnesiumInGrams())
 
 root = exports ? window
 root.Need = Need
