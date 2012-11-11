@@ -63,6 +63,10 @@
       }
     };
 
+    Need.prototype.__sufficientMacroMineral = function(mineral, mineral_need) {
+      return (mineral_need <= mineral && mineral <= (1.5 * mineral_need));
+    };
+
     Need.prototype.calciumInGrams = function() {
       return this.__round((this.horse.weight / 100) * this.__macroMineralNeed([4.0, 6.0, 7.0, 8.0]));
     };
@@ -81,6 +85,22 @@
 
     Need.prototype.solidsInKilos = function() {
       return this.__round((this.horse.weight / 100) * 1.5);
+    };
+
+    Need.prototype.sufficentEnergy = function(energy) {
+      return ((this.energyInMJ() - 3) <= energy && energy <= (this.energyInMJ() + 3));
+    };
+
+    Need.prototype.sufficentProtein = function(protein) {
+      return ((0.9 * this.proteinInGrams()) <= protein && protein <= (1.1 * this.proteinInGrams()));
+    };
+
+    Need.prototype.suffientCalcium = function(calcium) {
+      return this.__sufficientMacroMineral(calcium, this.calciumInGrams());
+    };
+
+    Need.prototype.suffientPhosphor = function(phosphor) {
+      return this.__sufficientMacroMineral(phosphor, this.phosphorInGrams());
     };
 
     return Need;
