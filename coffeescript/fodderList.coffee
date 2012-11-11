@@ -16,7 +16,7 @@ class FodderList
   getFodderByIndex: (index) ->
     @_fodders[index]
 
-  calculateQoutient: (nutrient_nominator, nutrient_denominator) ->
+  calculateQuotient: (nutrient_nominator, nutrient_denominator) ->
     unless nutrient_nominator and nutrient_denominator
       ""
     else

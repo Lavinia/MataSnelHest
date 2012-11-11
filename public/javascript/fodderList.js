@@ -29,7 +29,7 @@
       return this._fodders[index];
     };
 
-    FodderList.prototype.calculateQoutient = function(nutrient_nominator, nutrient_denominator) {
+    FodderList.prototype.calculateQuotient = function(nutrient_nominator, nutrient_denominator) {
       if (!(nutrient_nominator && nutrient_denominator)) {
         return "";
       } else {

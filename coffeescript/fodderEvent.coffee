@@ -21,10 +21,17 @@ addFodder = () ->
 
   """
 
-calculateCalciumPhosphorQoutient = (totals) ->
-  CaPQuotient = (totals.calcium / totals.phosphor)
-  jQuery('#CaP-quotient span').html(CaPQuotient)
+addSumsAndQuotients = (totals) ->
+  jQuery('#total_solids').html(totals.solids)
+  jQuery('#total_energy').html(totals.energy)
+  jQuery('#total_protein').html(totals.protein)
+  jQuery('#total_calcium').html(totals.calcium)
+  jQuery('#total_phosphor').html(totals.phosphor)
+  jQuery('#total_magnesium').html(totals.magnesium)
+  jQuery('#total_selenium').html(totals.selenium)
 
+  jQuery('#MJSmrp-quotient span').html(fodder_list.calculateQuotient(totals.protein, totals.energy))
+  jQuery('#CaP-quotient span').html(fodder_list.calculateQuotient(totals.calcium, totals.phosphor))
 
 jQuery ->
   addFodder()
@@ -37,13 +44,4 @@ jQuery ->
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
     fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
     totals = fodder_list.calculate()
-    jQuery('#total_solids').html(totals.solids)
-    jQuery('#total_energy').html(totals.energy)
-    jQuery('#total_protein').html(totals.protein)
-    jQuery('#total_calcium').html(totals.calcium)
-    jQuery('#total_phosphor').html(totals.phosphor)
-    jQuery('#total_magnesium').html(totals.magnesium)
-    jQuery('#total_selenium').html(totals.selenium)
-
-    jQuery('#MJSmrp-quotient span').html(fodder_list.calculateQoutient(totals.protein, totals.energy))
-    jQuery('#CaP-quotient span').html(fodder_list.calculateQoutient(totals.calcium, totals.phosphor))
+    addSumsAndQuotients(totals)
