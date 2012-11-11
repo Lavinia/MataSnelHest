@@ -7,7 +7,8 @@
 * Avrundning för kvoterna
 * Bättre typsnitt
 * Samma storlek i alla fält
-* Refaktorera FodderListTest
+* Bryt ut avrundningen till egen klass (eller liknande) och se till att man kan välja om man vill ha 1 eller 2 decimaler.(need och fodderlist har nu.)
+* Styla tabell
 
 ** NEW THINGS **
 * Röd/grön beroende på om det är för mycket/för lite näring
@@ -34,3 +35,4 @@
 * Avståndet i motionsrutan
 * Kolla upp Infinity i kvoterna när man endast skrivit in ett näringsämne (borde vara 0 eller nåt sånt)
 * Rensa/städa layout.css
+* Refaktorera FodderListTest

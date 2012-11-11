@@ -43,5 +43,4 @@ jQuery ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
     fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
-    totals = fodder_list.calculate()
-    addSumsAndQuotients(totals)
+    addSumsAndQuotients fodder_list.calculate()

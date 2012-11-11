@@ -31,12 +31,11 @@
       return addFodder();
     });
     return jQuery('#fodder_header_table input').live('keyup', function() {
-      var elementId, elementName, idString, totals, _matchData, _ref;
+      var elementId, elementName, idString, _matchData, _ref;
       idString = jQuery(this).attr('id');
       _ref = idString.match(/_([a-z]+)_(\d+)/), _matchData = _ref[0], elementName = _ref[1], elementId = _ref[2];
       fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_" + elementName + "_" + elementId).val();
-      totals = fodder_list.calculate();
-      return addSumsAndQuotients(totals);
+      return addSumsAndQuotients(fodder_list.calculate());
     });
   });
 
