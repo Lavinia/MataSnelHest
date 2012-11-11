@@ -3,9 +3,6 @@ class FodderList
     @_fodders = []
     @_nextId = -1
 
-  __round: (value) ->
-    Math.round(value * 100) / 100
-
   append: (element) ->
     id = this.nextId()
     @_fodders[id] = element
@@ -30,13 +27,13 @@ class FodderList
 
     for fodder in @_fodders
       solids_in_kilos = (fodder.solids / 100) * fodder.amount
-      totals.solids += @__round(solids_in_kilos * 100) / 100
-      totals.energy += @__round(fodder.energy * fodder.amount)
+      totals.solids += solids_in_kilos
+      totals.energy += fodder.energy * fodder.amount
       totals.protein += fodder.protein * fodder.amount
-      totals.calcium += @__round(fodder.calcium * fodder.amount)
-      totals.phosphor += @__round(fodder.phosphor * fodder.amount)
-      totals.magnesium += @__round(fodder.magnesium * fodder.amount)
-      totals.selenium += @__round(fodder.selenium * fodder.amount)
+      totals.calcium += fodder.calcium * fodder.amount
+      totals.phosphor += fodder.phosphor * fodder.amount
+      totals.magnesium += fodder.magnesium * fodder.amount
+      totals.selenium += fodder.selenium * fodder.amount
 
     totals
 

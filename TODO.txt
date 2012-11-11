@@ -1,5 +1,6 @@
 ** BUGS **
 * Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
+* validering för input med text eller , istället för . (3,33 istället för 3.33)
 
 
 ** TODO **

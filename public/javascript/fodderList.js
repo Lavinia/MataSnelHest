@@ -11,10 +11,6 @@
       this._nextId = -1;
     }
 
-    FodderList.prototype.__round = function(value) {
-      return Math.round(value * 100) / 100;
-    };
-
     FodderList.prototype.append = function(element) {
       var id;
       id = this.nextId();
@@ -56,13 +52,13 @@
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         fodder = _ref[_i];
         solids_in_kilos = (fodder.solids / 100) * fodder.amount;
-        totals.solids += this.__round(solids_in_kilos * 100) / 100;
-        totals.energy += this.__round(fodder.energy * fodder.amount);
+        totals.solids += solids_in_kilos;
+        totals.energy += fodder.energy * fodder.amount;
         totals.protein += fodder.protein * fodder.amount;
-        totals.calcium += this.__round(fodder.calcium * fodder.amount);
-        totals.phosphor += this.__round(fodder.phosphor * fodder.amount);
-        totals.magnesium += this.__round(fodder.magnesium * fodder.amount);
-        totals.selenium += this.__round(fodder.selenium * fodder.amount);
+        totals.calcium += fodder.calcium * fodder.amount;
+        totals.phosphor += fodder.phosphor * fodder.amount;
+        totals.magnesium += fodder.magnesium * fodder.amount;
+        totals.selenium += fodder.selenium * fodder.amount;
       }
       return totals;
     };

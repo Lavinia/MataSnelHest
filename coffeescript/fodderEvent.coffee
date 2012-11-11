@@ -2,6 +2,9 @@ fodder_list = new FodderList
 
 window.fodder_list = fodder_list # Only used for debugging
 
+round = (value) ->
+    Math.round(value * 100) / 100
+
 addFodder = () ->
   fodder_list.append new Fodder
   id = fodder_list.lastIndex()
@@ -22,13 +25,13 @@ addFodder = () ->
   """
 
 addSumsAndQuotients = (totals) ->
-  jQuery('#total_solids').html(totals.solids)
-  jQuery('#total_energy').html(totals.energy)
-  jQuery('#total_protein').html(totals.protein)
-  jQuery('#total_calcium').html(totals.calcium)
-  jQuery('#total_phosphor').html(totals.phosphor)
-  jQuery('#total_magnesium').html(totals.magnesium)
-  jQuery('#total_selenium').html(totals.selenium)
+  jQuery('#total_solids').html(round(totals.solids))
+  jQuery('#total_energy').html(round(totals.energy))
+  jQuery('#total_protein').html(round(totals.protein))
+  jQuery('#total_calcium').html(round(totals.calcium))
+  jQuery('#total_phosphor').html(round(totals.phosphor))
+  jQuery('#total_magnesium').html(round(totals.magnesium))
+  jQuery('#total_selenium').html(round(totals.selenium))
 
   jQuery('#MJSmrp-quotient span').html(fodder_list.calculateQuotient(totals.protein, totals.energy))
   jQuery('#CaP-quotient span').html(fodder_list.calculateQuotient(totals.calcium, totals.phosphor))
