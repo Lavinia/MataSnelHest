@@ -41,6 +41,9 @@ class Need
 	__sufficientMacroMineral: (mineral, mineral_need) ->
 		mineral_need <= mineral <= (1.5 * mineral_need)
 
+	__maxSeleniumNeed: ->
+		(@horse.weight / 100) * 5
+
 	calciumInGrams: ->
 		@__round (@horse.weight / 100) * @__macroMineralNeed([4.0, 6.0, 7.0, 8.0])
 
@@ -70,6 +73,9 @@ class Need
 
 	suffientMagnesium: (magnesium) ->
 		@__sufficientMacroMineral(magnesium, this.magnesiumInGrams())
+
+	sufficientSelenium: (selenium) ->
+		this.seleniumInMilligrams() <= selenium <= @__maxSeleniumNeed()
 
 root = exports ? window
 root.Need = Need

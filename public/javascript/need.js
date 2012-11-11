@@ -67,6 +67,10 @@
       return (mineral_need <= mineral && mineral <= (1.5 * mineral_need));
     };
 
+    Need.prototype.__maxSeleniumNeed = function() {
+      return (this.horse.weight / 100) * 5;
+    };
+
     Need.prototype.calciumInGrams = function() {
       return this.__round((this.horse.weight / 100) * this.__macroMineralNeed([4.0, 6.0, 7.0, 8.0]));
     };
@@ -105,6 +109,10 @@
 
     Need.prototype.suffientMagnesium = function(magnesium) {
       return this.__sufficientMacroMineral(magnesium, this.magnesiumInGrams());
+    };
+
+    Need.prototype.sufficientSelenium = function(selenium) {
+      return (this.seleniumInMilligrams() <= selenium && selenium <= this.__maxSeleniumNeed());
     };
 
     return Need;

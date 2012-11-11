@@ -167,6 +167,17 @@ describe 'Need', ->
 		it 'returns false when over 50% of magnesium need', ->
 			@need.suffientMagnesium(36.01).should.equal false
 
+	describe 'sufficient selenium', ->
+		beforeEach ->
+			@need.seleniumInMilligrams = -> 0.90 # horse weighing 450 kg
+		it 'returns true when equal or above 5mg per 100kg weight', ->
+			@need.sufficientSelenium(0.90).should.equal true
+			@need.sufficientSelenium(22.50).should.equal true
+		it 'returns false when over the max need', ->
+			@need.sufficientSelenium(22.51).should.equal false
+		it 'returns false when below the selenium need', ->
+			@need.sufficientSelenium(0.89).should.equal false
+
 
 
 
