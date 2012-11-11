@@ -1,6 +1,5 @@
 ** BUGS **
 * Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
-* Kolla upp Infinity i kvoterna när man endast skrivit in ett näringsämne (borde vara 0 eller nåt sånt)
 
 
 ** TODO **
@@ -8,7 +7,7 @@
 * Avrundning för kvoterna
 * Bättre typsnitt
 * Samma storlek i alla fält
-* Rensa/städa layout.css
+* Refaktorera FodderListTest
 
 ** NEW THINGS **
 * Röd/grön beroende på om det är för mycket/för lite näring
@@ -33,4 +32,5 @@
 * Skriv ut MJ/smrp och Ca/P
 * Avrundar inte TS i uträkningen korrekt
 * Avståndet i motionsrutan
-
+* Kolla upp Infinity i kvoterna när man endast skrivit in ett näringsämne (borde vara 0 eller nåt sånt)
+* Rensa/städa layout.css

@@ -22,7 +22,6 @@ class FodderList
     else
       Math.round((nutrient_nominator / nutrient_denominator) * 10) / 10
 
-
   calculate: ->
     totals = { energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0 }
 

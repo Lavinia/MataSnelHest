@@ -3,39 +3,8 @@ h3 {
   padding-top: 10px;
 }
 
-.container {
-  width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 td input {
   width: 40px;
-}
-
-.horse_information {
-  width: 270px;
-  float:left;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  margin-right: 10px;
-}
-
-#days-per-week {
-  margin-bottom: 15px;
-}
-
-.workload {
-  margin-bottom:5px;
-}
-
-.need_calculation {
-  float:left;
-}
-
-.fodder_silver {
-  float:left;
- /* clear: both;*/
 }
 
 fieldset {
@@ -47,21 +16,41 @@ legend {
   padding-top: 10px;
 }
 
+.container {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Horse Information */
+
+.horse-information {
+  width: 270px;
+  float:left;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+}
+
+.workload {
+  margin-bottom:5px;
+}
+
+#days-per-week {
+  margin-bottom: 15px;
+}
+
+.need_calculation {
+  float:left;
+}
+
+/* Fodder */
+
 #fodder_header {
   float:left;
 }
 
-#calculation_header {
-  float: left;
-}
-
-#fodder_calculator {
-  float:left;
-}
-
-.fodder-calculations {
-  padding-top: 10px;
-}
+/* Fodder calculation */
 
 .add_fodder {
   width:40px;
@@ -71,10 +60,21 @@ legend {
   width: 100px;
 }
 
+
+
+#fodder_calculator {
+  float:left;
+}
+
+.fodder-calculations {
+  padding-top: 10px;
+}
+
 #sum td {
   width: 40px;
 }
 
+/* footer */
 #footer {
   padding-top: 10px;
   clear: both;
