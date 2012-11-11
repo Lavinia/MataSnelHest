@@ -14,10 +14,52 @@
       return Math.round(value * 100) / 100;
     };
 
+    Need.prototype.__macroMineralNeed = function(mineralNeeds) {
+      var factor, ratio;
+      ratio = this.workBaseEnergyRatio();
+      if (ratio === 0) {
+        return factor = mineralNeeds[0];
+      } else if (ratio < 0.30) {
+        return factor = mineralNeeds[1];
+      } else if (ratio < 0.50) {
+        return factor = mineralNeeds[2];
+      } else {
+        return factor = mineralNeeds[3];
+      }
+    };
+
+    Need.prototype.__sufficientMacroMineral = function(mineral, mineral_need) {
+      return (mineral_need <= mineral && mineral <= (1.5 * mineral_need));
+    };
+
+    Need.prototype.__maxSeleniumNeed = function() {
+      return this.__horseWeightInDeciton() * 5;
+    };
+
+    Need.prototype.__minProteinNeed = function() {
+      return 0.9 * this.proteinInGrams();
+    };
+
+    Need.prototype.__maxProteinNeed = function() {
+      return 1.1 * this.proteinInGrams();
+    };
+
+    Need.prototype.__minEnergyNeed = function() {
+      return this.energyInMJ() - 3;
+    };
+
+    Need.prototype.__maxEnergyNeed = function() {
+      return this.energyInMJ() + 3;
+    };
+
+    Need.prototype.__horseWeightInDeciton = function() {
+      return this.horse.weight / 100;
+    };
+
     Need.prototype.workEnergyInMJ = function() {
       var trotEnergy, walkEnergy;
-      walkEnergy = (this.horse.workload['walk'] / 10) * 0.2 * (this.horse.weight / 100);
-      trotEnergy = (this.horse.workload['trot'] / 10) * 1.3 * (this.horse.weight / 100);
+      walkEnergy = (this.horse.workload['walk'] / 10) * 0.2 * this.__horseWeightInDeciton();
+      trotEnergy = (this.horse.workload['trot'] / 10) * 1.3 * this.__horseWeightInDeciton();
       return (walkEnergy + trotEnergy) * (this.horse.workload['daysPerWeek'] / 7);
     };
 
@@ -49,54 +91,32 @@
       return this.__round(this.energyInMJ() * 6);
     };
 
-    Need.prototype.__macroMineralNeed = function(mineralNeeds) {
-      var factor, ratio;
-      ratio = this.workBaseEnergyRatio();
-      if (ratio === 0) {
-        return factor = mineralNeeds[0];
-      } else if (ratio < 0.30) {
-        return factor = mineralNeeds[1];
-      } else if (ratio < 0.50) {
-        return factor = mineralNeeds[2];
-      } else {
-        return factor = mineralNeeds[3];
-      }
-    };
-
-    Need.prototype.__sufficientMacroMineral = function(mineral, mineral_need) {
-      return (mineral_need <= mineral && mineral <= (1.5 * mineral_need));
-    };
-
-    Need.prototype.__maxSeleniumNeed = function() {
-      return (this.horse.weight / 100) * 5;
-    };
-
     Need.prototype.calciumInGrams = function() {
-      return this.__round((this.horse.weight / 100) * this.__macroMineralNeed([4.0, 6.0, 7.0, 8.0]));
+      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([4.0, 6.0, 7.0, 8.0]));
     };
 
     Need.prototype.phosphorInGrams = function() {
-      return this.__round((this.horse.weight / 100) * this.__macroMineralNeed([2.8, 3.6, 4.2, 5.8]));
+      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([2.8, 3.6, 4.2, 5.8]));
     };
 
     Need.prototype.magnesiumInGrams = function() {
-      return this.__round((this.horse.weight / 100) * this.__macroMineralNeed([1.5, 1.9, 2.3, 3.0]));
+      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([1.5, 1.9, 2.3, 3.0]));
     };
 
     Need.prototype.seleniumInMilligrams = function() {
-      return this.__round((this.horse.weight / 100) * 0.2);
+      return this.__round(this.__horseWeightInDeciton() * 0.2);
     };
 
     Need.prototype.solidsInKilos = function() {
-      return this.__round((this.horse.weight / 100) * 1.5);
+      return this.__round(this.__horseWeightInDeciton() * 1.5);
     };
 
     Need.prototype.sufficentEnergy = function(energy) {
-      return ((this.energyInMJ() - 3) <= energy && energy <= (this.energyInMJ() + 3));
+      return (this.__minEnergyNeed() <= energy && energy <= this.__maxEnergyNeed());
     };
 
     Need.prototype.sufficentProtein = function(protein) {
-      return ((0.9 * this.proteinInGrams()) <= protein && protein <= (1.1 * this.proteinInGrams()));
+      return (this.__minProteinNeed() <= protein && protein <= this.__maxProteinNeed());
     };
 
     Need.prototype.suffientCalcium = function(calcium) {
