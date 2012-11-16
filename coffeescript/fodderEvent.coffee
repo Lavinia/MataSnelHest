@@ -23,6 +23,9 @@ addFodder = () ->
     </tr>
 
   """
+addQoutients = (htmlElement, totals) ->
+  jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.protein, totals.energy))
+  jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.calcium, totals.phosphor))
 
 addSumsAndQuotients = (totals) ->
   jQuery('#total_solids').html(round(totals.solids))
@@ -33,8 +36,8 @@ addSumsAndQuotients = (totals) ->
   jQuery('#total_magnesium').html(round(totals.magnesium))
   jQuery('#total_selenium').html(round(totals.selenium))
 
-  jQuery('#MJSmrp-quotient span').html(fodder_list.calculateQuotient(totals.protein, totals.energy))
-  jQuery('#CaP-quotient span').html(fodder_list.calculateQuotient(totals.calcium, totals.phosphor))
+  addQoutients('#MJSmrp-quotient span', totals)
+  addQoutients('#CaP-quotient span', totals)
 
 jQuery ->
   addFodder()
