@@ -1,6 +1,10 @@
 horse = new Horse
 need = new Need horse
 
+window.horse = horse # Reluctantly Used to get the horse to the fodderEvent.
+window.need = need # Reluctantly Used to get the need to the fodderEvent.
+
+
 printNeeds = ->
 	jQuery('#need_solids').html need.solidsInKilos()
 	jQuery('#need_energy').html need.energyInMJ()

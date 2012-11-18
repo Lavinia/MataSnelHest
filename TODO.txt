@@ -4,6 +4,7 @@
 
 
 ** TODO **
+* Lägg till min/max-värden för TS
 * Bättre typsnitt
 * Samma storlek i alla fält
 * Styla tabell

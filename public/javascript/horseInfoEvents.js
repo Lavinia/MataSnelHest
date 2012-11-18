@@ -6,6 +6,10 @@
 
   need = new Need(horse);
 
+  window.horse = horse;
+
+  window.need = need;
+
   printNeeds = function() {
     jQuery('#need_solids').html(need.solidsInKilos());
     jQuery('#need_energy').html(need.energyInMJ());

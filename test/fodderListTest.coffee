@@ -24,8 +24,8 @@ describe 'FodderList', ->
   describe '#calculate', ->
     it 'calculates the total nutrition in all fodders', ->
       @fodderList.append new Fodder { amount: 2, energy: 1, solids: 60, protein: 3, calcium: 4, phosphor: 5, magnesium: 6, selenium: 7 }
-      @fodderList.append new Fodder { amount: 3, energy: 2, solids: 30, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8 }
-      @fodderList.calculate().should.eql {energy: 8, solids: 2.1, protein: 18, calcium: 23, phosphor: 28, magnesium: 33, selenium: 38}
+      @fodderList.append new Fodder { amount: 3, energy: 2, solids: 32, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8 }
+      @fodderList.calculate().should.eql {energy: 8, solids: 2.16, protein: 18, calcium: 23, phosphor: 28, magnesium: 33, selenium: 38}
 
     it 'returns a fodder list with only zeroes if no fodders are in there', ->
       @fodderList.calculate().should.eql {energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0}
