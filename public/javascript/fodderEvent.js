@@ -23,7 +23,7 @@
     needFulfilledColour(need.suffientCalcium(totals.calcium), '#total_calcium');
     needFulfilledColour(need.suffientPhosphor(totals.phosphor), '#total_phosphor');
     needFulfilledColour(need.suffientMagnesium(totals.magnesium), '#total_magnesium');
-    return needFulfilledColour(need.suffientMagnesium(totals.selenium), '#total_selenium');
+    return needFulfilledColour(need.sufficientSelenium(totals.selenium), '#total_selenium');
   };
 
   needFulfilledColour = function(method, htmlElement) {

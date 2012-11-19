@@ -30,7 +30,7 @@ colourizeResults = (totals) ->
   needFulfilledColour(need.suffientCalcium(totals.calcium), '#total_calcium')
   needFulfilledColour(need.suffientPhosphor(totals.phosphor), '#total_phosphor')
   needFulfilledColour(need.suffientMagnesium(totals.magnesium), '#total_magnesium')
-  needFulfilledColour(need.suffientMagnesium(totals.selenium), '#total_selenium')
+  needFulfilledColour(need.sufficientSelenium(totals.selenium), '#total_selenium')
 
 needFulfilledColour = (method, htmlElement) ->
   if method
@@ -69,5 +69,3 @@ jQuery ->
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
     fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
     addSumsAndQuotients fodder_list.calculate()
-
-
