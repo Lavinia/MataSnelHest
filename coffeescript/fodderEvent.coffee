@@ -25,20 +25,23 @@ addFodder = () ->
   """
 
 colourizeResults = (totals) ->
-  needFulfilledColour(need.sufficentEnergy(totals.energy), '#total_energy')
-  needFulfilledColour(need.sufficentProtein(totals.protein), '#total_protein')
-  needFulfilledColour(need.suffientCalcium(totals.calcium), '#total_calcium')
-  needFulfilledColour(need.suffientPhosphor(totals.phosphor), '#total_phosphor')
-  needFulfilledColour(need.suffientMagnesium(totals.magnesium), '#total_magnesium')
-  needFulfilledColour(need.sufficientSelenium(totals.selenium), '#total_selenium')
+  colourFor(need.sufficentEnergy(totals.energy), '#total_energy')
+  colourFor(need.sufficentProtein(totals.protein), '#total_protein')
+  colourFor(need.suffientCalcium(totals.calcium), '#total_calcium')
+  colourFor(need.suffientPhosphor(totals.phosphor), '#total_phosphor')
+  colourFor(need.suffientMagnesium(totals.magnesium), '#total_magnesium')
+  colourFor(need.sufficientSelenium(totals.selenium), '#total_selenium')
 
-needFulfilledColour = (method, htmlElement) ->
-  if method
-    jQuery(htmlElement).removeClass('red')
-    jQuery(htmlElement).addClass('green')
-  else
-    jQuery(htmlElement).removeClass('green')
-    jQuery(htmlElement).addClass('red')
+addGreen = (htmlElement) ->
+  jQuery(htmlElement).removeClass('red')
+  jQuery(htmlElement).addClass('green')
+
+addRed = (htmlElement) ->
+  jQuery(htmlElement).removeClass('green')
+  jQuery(htmlElement).addClass('red')
+
+colourFor = (sufficientNutrient, htmlElement) ->
+  if sufficientNutrient then addGreen(htmlElement) else addRed(htmlElement)
 
 addQoutients = (htmlElement, totals) ->
   jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.protein, totals.energy))

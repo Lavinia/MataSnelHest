@@ -2,7 +2,6 @@
 * Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
 * validering för input med text eller , istället för . (3,33 istället för 3.33)
 
-
 ** TODO **
 * Lägg till min/max-värden för TS
 * Bättre typsnitt
@@ -10,7 +9,6 @@
 * Styla tabell
 
 ** NEW THINGS **
-* Röd/grön beroende på om det är för mycket/för lite näring
 * Övriga vitaminer/mineraler
 * Övriga kvoter
 
@@ -27,6 +25,8 @@
 * Unghästar
 * Unghästar i motion
 
+** KOLLA UPP **
+* Ca/Mg-kvot? ej under 2.7
 
 *** DONE ***
 * Skriv ut MJ/smrp och Ca/P
@@ -38,5 +38,5 @@
 * Avrundning för samtliga näringsämnen
 * Avrundning för kvoterna
 * Bryt ut avrundningen till egen klass (eller liknande) och se till att man kan välja om man vill ha 1 eller 2 decimaler.(need och fodderlist har nu.)
-
+* Röd/grön beroende på om det är för mycket/för lite näring
 
