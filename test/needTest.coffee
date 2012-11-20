@@ -107,6 +107,16 @@ describe 'Need', ->
 			@need.workEnergyInMJ = -> 40.00
 			@need.workBaseEnergyRatio().should.equal 40.00 / 62.00
 
+	describe 'sufficient solids', ->
+		it 'returns true when between 1 and 3 kg ts/100kg and day', ->
+			@need.sufficientSolids(4.50).should.equal true
+			@need.sufficientSolids(6.75).should.equal true
+			@need.sufficientSolids(13.50).should.equal true
+		it 'returns false when below xxx', ->
+			@need.sufficientSolids(4.49).should.equal false
+		it 'returns false when above max intake of solids', ->
+			@need.sufficientSolids(13.51).should.equal false
+
 	describe 'sufficent energy', ->
 		beforeEach ->
 			@need.baseEnergyInMJ = -> 50.00

@@ -56,6 +56,10 @@
       return this.horse.weight / 100;
     };
 
+    Need.prototype.__maxSolids = function() {
+      return this.__horseWeightInDeciton() * 3.00;
+    };
+
     Need.prototype.workEnergyInMJ = function() {
       var trotEnergy, walkEnergy;
       walkEnergy = (this.horse.workload['walk'] / 10) * 0.2 * this.__horseWeightInDeciton();
@@ -109,6 +113,10 @@
 
     Need.prototype.solidsInKilos = function() {
       return this.__round(this.__horseWeightInDeciton() * 1.5);
+    };
+
+    Need.prototype.sufficientSolids = function(solids) {
+      return (this.__horseWeightInDeciton() <= solids && solids <= this.__maxSolids());
     };
 
     Need.prototype.sufficentEnergy = function(energy) {

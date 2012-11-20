@@ -37,6 +37,9 @@ class Need
 	__horseWeightInDeciton: ->
 		@horse.weight / 100
 
+	__maxSolids: ->
+		@__horseWeightInDeciton() * 3.00
+
 	workEnergyInMJ: ->
 		walkEnergy = (@horse.workload['walk'] / 10) * 0.2 * @__horseWeightInDeciton()
 		trotEnergy = (@horse.workload['trot'] / 10) * 1.3 * @__horseWeightInDeciton()
@@ -73,6 +76,9 @@ class Need
 
 	solidsInKilos: ->
 		@__round @__horseWeightInDeciton() * 1.5
+
+	sufficientSolids: (solids) ->
+		@__horseWeightInDeciton() <= solids <= @__maxSolids()
 
 	sufficentEnergy: (energy) ->
 		@__minEnergyNeed() <= energy <= @__maxEnergyNeed()
