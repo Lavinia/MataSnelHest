@@ -51,7 +51,19 @@ describe 'FodderList', ->
       @fodderList.append new Fodder fodder
       @fodderList.calculateQuotient(fodder.calcium, fodder.phosphor).should.eql 1.7
 
+    it 'calculates the calcium magnesium quotient', ->
+      fodder = { amount: 2, calcium: 3.7, magnesium: 2.2 }
+      @fodderList.append new Fodder fodder
+      @fodderList.calculateQuotient(fodder.calcium, fodder.magnesium).should.eql 1.7
+
     it 'returns an empty string when nutrients are missing in quotient', ->
       fodder = { amount: 1, phosphor: 2.2 }
       @fodderList.append new Fodder fodder
       @fodderList.calculateQuotient(fodder.calcium, fodder.phosphor).should.eql ""
+
+    it 'returns the right numbers when all nutrients are present', ->
+      fodder = { amount: 1, energy: 5.4, protein: 22, calcium: 3.7, phosphor: 2.2, magnesium: 1.3 }
+      @fodderList.append new Fodder fodder
+      @fodderList.calculateQuotient(fodder.protein, fodder.energy).should.eql 4.1
+      @fodderList.calculateQuotient(fodder.calcium, fodder.phosphor).should.eql 1.7
+      @fodderList.calculateQuotient(fodder.calcium, fodder.magnesium).should.eql 2.8

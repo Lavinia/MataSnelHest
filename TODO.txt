@@ -29,6 +29,7 @@
 * Ca/Mg-kvot? ej under 2.7
 
 *** DONE ***
+* Räknar ut falsk kvot på Mj/Smrp när den inte finns och mineralerna finns (dvs mj och smrp finns inte!!)
 * Skriv ut MJ/smrp och Ca/P
 * Avrundar inte TS i uträkningen korrekt
 * Avståndet i motionsrutan

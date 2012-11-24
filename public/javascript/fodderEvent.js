@@ -44,9 +44,10 @@
     }
   };
 
-  addQoutients = function(htmlElement, totals) {
-    jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.protein, totals.energy));
-    return jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.calcium, totals.phosphor));
+  addQoutients = function(htmlElement, nutrientToDivide, nutrientToDivideBy) {
+    jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy));
+    jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy));
+    return jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy));
   };
 
   addSumsAndQuotients = function(totals) {
@@ -57,8 +58,9 @@
     jQuery('#total_phosphor').html(round(totals.phosphor));
     jQuery('#total_magnesium').html(round(totals.magnesium));
     jQuery('#total_selenium').html(round(totals.selenium));
-    addQoutients('#MJSmrp-quotient span', totals);
-    addQoutients('#CaP-quotient span', totals);
+    addQoutients('#MJSmrp-quotient span', totals.protein, totals.energy);
+    addQoutients('#CaP-quotient span', totals.calcium, totals.phosphor);
+    addQoutients('#CaMg-quotient span', totals.calcium, totals.magnesium);
     return colourizeResults(totals);
   };
 

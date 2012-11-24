@@ -43,9 +43,10 @@ addRed = (htmlElement) ->
 colourFor = (sufficientNutrient, htmlElement) ->
   if sufficientNutrient then addGreen(htmlElement) else addRed(htmlElement)
 
-addQoutients = (htmlElement, totals) ->
-  jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.protein, totals.energy))
-  jQuery(htmlElement).html(fodder_list.calculateQuotient(totals.calcium, totals.phosphor))
+addQoutients = (htmlElement, nutrientToDivide, nutrientToDivideBy) ->
+  jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy))
+  jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy))
+  jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy))
 
 addSumsAndQuotients = (totals) ->
   jQuery('#total_solids').html(round(totals.solids))
@@ -56,8 +57,9 @@ addSumsAndQuotients = (totals) ->
   jQuery('#total_magnesium').html(round(totals.magnesium))
   jQuery('#total_selenium').html(round(totals.selenium))
 
-  addQoutients('#MJSmrp-quotient span', totals)
-  addQoutients('#CaP-quotient span', totals)
+  addQoutients('#MJSmrp-quotient span', totals.protein, totals.energy)
+  addQoutients('#CaP-quotient span', totals.calcium, totals.phosphor)
+  addQoutients('#CaMg-quotient span', totals.calcium, totals.magnesium)
 
   colourizeResults(totals)
 
