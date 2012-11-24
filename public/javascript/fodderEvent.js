@@ -45,8 +45,6 @@
   };
 
   addQoutients = function(htmlElement, nutrientToDivide, nutrientToDivideBy) {
-    jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy));
-    jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy));
     return jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy));
   };
 

@@ -45,8 +45,6 @@ colourFor = (sufficientNutrient, htmlElement) ->
 
 addQoutients = (htmlElement, nutrientToDivide, nutrientToDivideBy) ->
   jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy))
-  jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy))
-  jQuery(htmlElement).html(fodder_list.calculateQuotient(nutrientToDivide, nutrientToDivideBy))
 
 addSumsAndQuotients = (totals) ->
   jQuery('#total_solids').html(round(totals.solids))
