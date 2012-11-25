@@ -1,12 +1,16 @@
 ** BUGS **
 * Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
 * validering för input med text eller , istället för . (3,33 istället för 3.33)
+* Se till att validering på inlagda foder INTE sparar fodret om det är felaktigt. Just nu blir 3,4: 4
+* Ge individuellt meddelande för varje felämne.
+* Se till att felen stannar kvar tills de är fixade- nu försvinner de när man skriver i annan ruta.
 
 ** TODO **
 * Lägg till min/max-värden för TS
 * Bättre typsnitt
 * Samma storlek i alla fält
 * Styla tabell
+* Ge bättre fellmeddelande vid olika input fel.
 
 ** NEW THINGS **
 * Övriga vitaminer/mineraler
