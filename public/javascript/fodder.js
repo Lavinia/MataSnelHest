@@ -30,7 +30,12 @@
     };
 
     Fodder.prototype.setSolids = function(solidsInPercent) {
-      return this.solids = solidsInPercent;
+      var convertedSolids;
+      convertedSolids = Number(solidsInPercent);
+      if (isNaN(convertedSolids)) {
+        throw "" + solidsInPercent + " is not a valid number";
+      }
+      return this.solids = convertedSolids;
     };
 
     Fodder.prototype.setEnergy = function(energy) {

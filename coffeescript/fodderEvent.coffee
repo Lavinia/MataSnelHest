@@ -61,6 +61,13 @@ addSumsAndQuotients = (totals) ->
 
   colourizeResults(totals)
 
+String::capitalize = ->
+  this.substr(0, 1).toUpperCase() + this.substr(1)
+
+setFodders = (elementName, elementId) ->
+  element = elementName.capitalize()
+  eval("fodder_list.getFodderByIndex(elementId).set" + element + "(jQuery('#fodder_#{elementName}_#{elementId}').val())")
+
 jQuery ->
   addFodder()
 
@@ -70,5 +77,13 @@ jQuery ->
   jQuery('#fodder_header_table input').live 'keyup', ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
-    fodder_list.getFodderByIndex(elementId)[elementName] = jQuery("#fodder_#{elementName}_#{elementId}").val()
+    setFodders(elementName, elementId)
     addSumsAndQuotients fodder_list.calculate()
+
+
+
+
+
+
+
+
