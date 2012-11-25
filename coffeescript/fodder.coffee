@@ -16,25 +16,43 @@ class Fodder
   setAmount: (amount) ->
     @amount = amount
 
+  __is_valid_number: (converted, original) ->
+    if isNaN converted
+      throw "#{original} is not a valid number"
+
   setSolids: (solidsInPercent) ->
-    @solids = solidsInPercent
+    convertedSolids = (Number) solidsInPercent
+    @__is_valid_number(convertedSolids, solidsInPercent)
+    @solids = convertedSolids
 
   setEnergy: (energy) ->
-    @energy = energy
+    convertedEnergy = (Number) energy
+    @__is_valid_number(convertedEnergy, energy)
+    @energy = convertedEnergy
 
   setProtein: (protein) ->
+    convertedProtein = (Number) protein
+    @__is_valid_number(convertedProtein, protein)
     @protein = protein
 
   setCalcium: (calcium) ->
+    convertedCalcium = (Number) calcium
+    @__is_valid_number(convertedCalcium, calcium)
     @calcium = calcium
 
   setPhosphor: (phosphor) ->
+    convertedPhosphor = (Number) phosphor
+    @__is_valid_number(convertedPhosphor, phosphor)
     @phosphor = phosphor
 
   setMagnesium: (magnesium) ->
+    convertedMagnesium = (Number) magnesium
+    @__is_valid_number(convertedMagnesium, magnesium)
     @magnesium = magnesium
 
   setSelenium: (selenium) ->
+    convertedSelenium = (Number) selenium
+    @__is_valid_number(convertedSelenium, selenium)
     @selenium = selenium
 
 root = exports ? window

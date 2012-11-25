@@ -29,36 +29,58 @@
       return this.amount = amount;
     };
 
+    Fodder.prototype.__is_valid_number = function(converted, original) {
+      if (isNaN(converted)) {
+        throw "" + original + " is not a valid number";
+      }
+    };
+
     Fodder.prototype.setSolids = function(solidsInPercent) {
       var convertedSolids;
       convertedSolids = Number(solidsInPercent);
-      if (isNaN(convertedSolids)) {
-        throw "" + solidsInPercent + " is not a valid number";
-      }
+      this.__is_valid_number(convertedSolids, solidsInPercent);
       return this.solids = convertedSolids;
     };
 
     Fodder.prototype.setEnergy = function(energy) {
-      return this.energy = energy;
+      var convertedEnergy;
+      convertedEnergy = Number(energy);
+      this.__is_valid_number(convertedEnergy, energy);
+      return this.energy = convertedEnergy;
     };
 
     Fodder.prototype.setProtein = function(protein) {
+      var convertedProtein;
+      convertedProtein = Number(protein);
+      this.__is_valid_number(convertedProtein, protein);
       return this.protein = protein;
     };
 
     Fodder.prototype.setCalcium = function(calcium) {
+      var convertedCalcium;
+      convertedCalcium = Number(calcium);
+      this.__is_valid_number(convertedCalcium, calcium);
       return this.calcium = calcium;
     };
 
     Fodder.prototype.setPhosphor = function(phosphor) {
+      var convertedPhosphor;
+      convertedPhosphor = Number(phosphor);
+      this.__is_valid_number(convertedPhosphor, phosphor);
       return this.phosphor = phosphor;
     };
 
     Fodder.prototype.setMagnesium = function(magnesium) {
+      var convertedMagnesium;
+      convertedMagnesium = Number(magnesium);
+      this.__is_valid_number(convertedMagnesium, magnesium);
       return this.magnesium = magnesium;
     };
 
     Fodder.prototype.setSelenium = function(selenium) {
+      var convertedSelenium;
+      convertedSelenium = Number(selenium);
+      this.__is_valid_number(convertedSelenium, selenium);
       return this.selenium = selenium;
     };
 

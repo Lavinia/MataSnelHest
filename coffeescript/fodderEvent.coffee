@@ -65,8 +65,8 @@ String::capitalize = ->
   this.substr(0, 1).toUpperCase() + this.substr(1)
 
 setFodders = (elementName, elementId) ->
-  element = elementName.capitalize()
-  eval("fodder_list.getFodderByIndex(elementId).set" + element + "(jQuery('#fodder_#{elementName}_#{elementId}').val())")
+  nutrient = elementName.capitalize()
+  eval("fodder_list.getFodderByIndex(elementId).set" + nutrient + "(jQuery('#fodder_#{elementName}_#{elementId}').val())")
 
 jQuery ->
   addFodder()
@@ -77,7 +77,13 @@ jQuery ->
   jQuery('#fodder_header_table input').live 'keyup', ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
-    setFodders(elementName, elementId)
+    try
+      console.log setFodders(elementName, elementId)
+      jQuery('.fodder_error').html ''
+    catch err
+      jQuery('.fodder_error').html err
+
+
     addSumsAndQuotients fodder_list.calculate()
 
 

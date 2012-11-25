@@ -59,8 +59,10 @@ legend {
 .fodder-name {
   width: 100px;
 }
-
-
+.fodder_error {
+  background:red;
+  display: inline;
+}
 
 #fodder_calculator {
   float:left;

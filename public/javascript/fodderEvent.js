@@ -67,9 +67,9 @@
   };
 
   setFodders = function(elementName, elementId) {
-    var element;
-    element = elementName.capitalize();
-    return eval("fodder_list.getFodderByIndex(elementId).set" + element + ("(jQuery('#fodder_" + elementName + "_" + elementId + "').val())"));
+    var nutrient;
+    nutrient = elementName.capitalize();
+    return eval("fodder_list.getFodderByIndex(elementId).set" + nutrient + ("(jQuery('#fodder_" + elementName + "_" + elementId + "').val())"));
   };
 
   jQuery(function() {
@@ -81,7 +81,12 @@
       var elementId, elementName, idString, _matchData, _ref;
       idString = jQuery(this).attr('id');
       _ref = idString.match(/_([a-z]+)_(\d+)/), _matchData = _ref[0], elementName = _ref[1], elementId = _ref[2];
-      setFodders(elementName, elementId);
+      try {
+        console.log(setFodders(elementName, elementId));
+        jQuery('.fodder_error').html('');
+      } catch (err) {
+        jQuery('.fodder_error').html(err);
+      }
       return addSumsAndQuotients(fodder_list.calculate());
     });
   });
