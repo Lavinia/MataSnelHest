@@ -82,7 +82,7 @@
       idString = jQuery(this).attr('id');
       _ref = idString.match(/_([a-z]+)_(\d+)/), _matchData = _ref[0], elementName = _ref[1], elementId = _ref[2];
       try {
-        console.log(setFodders(elementName, elementId));
+        setFodders(elementName, elementId);
         jQuery('.fodder_error').html('');
       } catch (err) {
         jQuery('.fodder_error').html(err);

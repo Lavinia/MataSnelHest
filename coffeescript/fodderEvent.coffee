@@ -78,11 +78,10 @@ jQuery ->
     idString = jQuery(this).attr('id')
     [_matchData, elementName, elementId] = idString.match(/_([a-z]+)_(\d+)/)
     try
-      console.log setFodders(elementName, elementId)
+      setFodders(elementName, elementId)
       jQuery('.fodder_error').html ''
     catch err
       jQuery('.fodder_error').html err
-
 
     addSumsAndQuotients fodder_list.calculate()
 
