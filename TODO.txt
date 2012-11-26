@@ -1,6 +1,6 @@
 ** BUGS **
 * Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
-* validering för input med text eller , istället för . (3,33 istället för 3.33)
+* validering för input med text eller , istället för . (3,33 istället för 3.33) Eller borde man bara byta tecknet??
 * Se till att validering på inlagda foder INTE sparar fodret om det är felaktigt. Just nu blir 3,4: 4
 * Ge individuellt meddelande för varje felämne.
 * Se till att felen stannar kvar tills de är fixade- nu försvinner de när man skriver i annan ruta.
