@@ -28,23 +28,23 @@
       var convertedWeight;
       convertedWeight = Number(weight);
       if (isNaN(convertedWeight)) {
-        throw "" + weight + " is not a valid number";
+        throw new Error("" + weight + " is not a valid number");
       } else if (convertedWeight < 0) {
-        throw "" + weight + " is not a valid weight";
+        throw new Error("" + weight + " is not a valid weight");
       }
       return this.weight = convertedWeight;
     };
 
     Horse.prototype.setGender = function(gender) {
       if (__indexOf.call(genders, gender) < 0) {
-        throw "" + gender + " is not a valid horse gender";
+        throw new Error("" + gender + " is not a valid horse gender");
       }
       return this.gender = gender;
     };
 
     Horse.prototype.setFeedType = function(feedType) {
       if (__indexOf.call(feedTypes, feedType) < 0) {
-        throw "" + feedType + " is not a valid horse feed type";
+        throw new Error("" + feedType + " is not a valid horse feed type");
       }
       return this.feedType = feedType;
     };
@@ -55,7 +55,7 @@
       _results = [];
       for (i = _i = 0, _ref = args.length; _i < _ref; i = _i += 2) {
         if ((isNaN(args[i + 1])) || args[i + 1] < 0) {
-          throw "" + args[i + 1] + " is not a valid number";
+          throw new Error("" + args[i + 1] + " is not a valid number");
         } else {
           _results.push(this.workload[args[i]] = args[i + 1]);
         }
