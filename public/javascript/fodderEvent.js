@@ -85,7 +85,7 @@
         setFodders(elementName, elementId);
         jQuery('.fodder_error').html('');
       } catch (err) {
-        jQuery('.fodder_error').html(err);
+        jQuery('.fodder_error').html(err.message);
       }
       return addSumsAndQuotients(fodder_list.calculate());
     });

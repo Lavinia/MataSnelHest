@@ -24,7 +24,8 @@ jQuery ->
 			printNeeds()
 			jQuery('#weight').siblings('.error').html ''
 		catch err
-			jQuery('#weight').siblings('.error').html err
+			console.log err
+			jQuery('#weight').siblings('.error').html err.message
 
 	jQuery('input[name=gender]:radio').change ->
 		horse.setGender jQuery(this).val()
@@ -44,7 +45,7 @@ jQuery ->
 			printNeeds()
 			jQuery('#walk').siblings('.error').html ''
 		catch err
-			jQuery('#walk').siblings('.error').html err
+			jQuery('#walk').siblings('.error').html err.message
 
 	jQuery('#trot').keyup ->
 		try
@@ -52,5 +53,5 @@ jQuery ->
 			printNeeds()
 			jQuery('#trot').siblings('.error').html ''
 		catch err
-			jQuery('#trot').siblings('.error').html err
+			jQuery('#trot').siblings('.error').html err.message
 

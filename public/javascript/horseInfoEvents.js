@@ -30,7 +30,8 @@
         printNeeds();
         return jQuery('#weight').siblings('.error').html('');
       } catch (err) {
-        return jQuery('#weight').siblings('.error').html(err);
+        console.log(err);
+        return jQuery('#weight').siblings('.error').html(err.message);
       }
     });
     jQuery('input[name=gender]:radio').change(function() {
@@ -51,7 +52,7 @@
         printNeeds();
         return jQuery('#walk').siblings('.error').html('');
       } catch (err) {
-        return jQuery('#walk').siblings('.error').html(err);
+        return jQuery('#walk').siblings('.error').html(err.message);
       }
     });
     return jQuery('#trot').keyup(function() {
@@ -60,7 +61,7 @@
         printNeeds();
         return jQuery('#trot').siblings('.error').html('');
       } catch (err) {
-        return jQuery('#trot').siblings('.error').html(err);
+        return jQuery('#trot').siblings('.error').html(err.message);
       }
     });
   });
