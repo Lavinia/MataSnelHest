@@ -63,20 +63,24 @@
       return totals;
     };
 
-    FodderList.prototype.sufficentProteinEnergyQuotient = function(nominator, denominator) {
-      if (nominator / denominator >= 6) {
+    FodderList.prototype.__sufficientQuotient = function(nominator, denominator, minimum_qoute) {
+      if (nominator / denominator >= minimum_qoute) {
         return true;
       } else {
         return false;
       }
     };
 
+    FodderList.prototype.sufficentProteinEnergyQuotient = function(nominator, denominator) {
+      return this.__sufficientQuotient(nominator, denominator, 6);
+    };
+
     FodderList.prototype.sufficentCalciumPhosphorQuotient = function(nominator, denominator) {
-      if (nominator / denominator >= 1.5) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.__sufficientQuotient(nominator, denominator, 1.5);
+    };
+
+    FodderList.prototype.sufficentCalciumMagnesiumQuotient = function(nominator, denominator) {
+      return this.__sufficientQuotient(nominator, denominator, 2.7);
     };
 
     return FodderList;

@@ -90,5 +90,16 @@ describe 'FodderList', ->
         @fodderList.append new Fodder fodder
         @fodderList.sufficentCalciumPhosphorQuotient(fodder.calcium, fodder.phosphor).should.be.false
 
+    describe '#sufficientCalciumagnesiumQuotient', ->
+      it 'returns true when quotient is above 2.7', ->
+        fodder = { amount: 1, calcium: 10.8, magnesium: 4 }
+        @fodderList.append new Fodder fodder
+        @fodderList.sufficentCalciumMagnesiumQuotient(fodder.calcium, fodder.magnesium).should.be.true
+
+      it 'returns false when below 2.7', ->
+        fodder = { amount: 1, calcium: 8.07, magnesium: 3 }
+        @fodderList.append new Fodder fodder
+        @fodderList.sufficentCalciumMagnesiumQuotient(fodder.calcium, fodder.magnesium).should.be.false
+
 
 

@@ -37,11 +37,17 @@ class FodderList
 
     totals
 
+  __sufficientQuotient: (nominator, denominator, minimum_qoute) ->
+    if nominator / denominator >= minimum_qoute then true else false
+
   sufficentProteinEnergyQuotient: (nominator, denominator) ->
-    if nominator / denominator >= 6 then true else false
+    @__sufficientQuotient(nominator, denominator, 6)
 
   sufficentCalciumPhosphorQuotient: (nominator, denominator) ->
-    if nominator / denominator >= 1.5 then true else false
+    @__sufficientQuotient(nominator, denominator, 1.5)
+
+  sufficentCalciumMagnesiumQuotient: (nominator, denominator) ->
+    @__sufficientQuotient(nominator, denominator, 2.7)
 
 
 root = exports ? window
