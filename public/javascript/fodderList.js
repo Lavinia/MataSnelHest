@@ -71,6 +71,14 @@
       }
     };
 
+    FodderList.prototype.sufficentCalciumPhosphorQuotient = function(nominator, denominator) {
+      if (nominator / denominator >= 1.5) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
     return FodderList;
 
   })();
