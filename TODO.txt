@@ -6,7 +6,8 @@
 * Se till att felen stannar kvar tills de är fixade- nu försvinner de när man skriver i annan ruta.
 
 ** TODO **
-* röd/grön för kvoterna - kolla att värden är rätt!
+* Startfärg i summa rutorna.
+* Röd/grön för kvoterna - kolla att värden är rätt!
 * Lägg till min/max-värden för TS
 * Bättre typsnitt
 * Samma storlek i alla fält

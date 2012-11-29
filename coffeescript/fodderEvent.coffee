@@ -31,6 +31,9 @@ colourizeResults = (totals) ->
   colourFor(need.suffientPhosphor(totals.phosphor), '#total_phosphor')
   colourFor(need.suffientMagnesium(totals.magnesium), '#total_magnesium')
   colourFor(need.sufficientSelenium(totals.selenium), '#total_selenium')
+  colourFor(fodder_list.sufficentProteinEnergyQuotient(totals.protein, totals.energy),'#MJSmrp-quotient span')
+  colourFor(fodder_list.sufficentCalciumPhosphorQuotient(totals.calcium, totals.phosphor),'#CaP-quotient span')
+  colourFor(fodder_list.sufficentCalciumMagnesiumQuotient(totals.calcium, totals.magnesium),'#CaMg-quotient span')
 
 addGreen = (htmlElement) ->
   jQuery(htmlElement).removeClass('red')

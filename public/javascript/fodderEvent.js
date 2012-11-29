@@ -23,7 +23,10 @@
     colourFor(need.suffientCalcium(totals.calcium), '#total_calcium');
     colourFor(need.suffientPhosphor(totals.phosphor), '#total_phosphor');
     colourFor(need.suffientMagnesium(totals.magnesium), '#total_magnesium');
-    return colourFor(need.sufficientSelenium(totals.selenium), '#total_selenium');
+    colourFor(need.sufficientSelenium(totals.selenium), '#total_selenium');
+    colourFor(fodder_list.sufficentProteinEnergyQuotient(totals.protein, totals.energy), '#MJSmrp-quotient span');
+    colourFor(fodder_list.sufficentCalciumPhosphorQuotient(totals.calcium, totals.phosphor), '#CaP-quotient span');
+    return colourFor(fodder_list.sufficentCalciumMagnesiumQuotient(totals.calcium, totals.magnesium), '#CaMg-quotient span');
   };
 
   addGreen = function(htmlElement) {
