@@ -29,73 +29,42 @@
       return this.amount = amount;
     };
 
-    Fodder.prototype.__isValidNumber = function(converted, original) {
-      if (isNaN(converted)) {
+    Fodder.prototype.__isValidNumber = function(original) {
+      var asNum;
+      asNum = Number(original.replace(',', '.'));
+      if (isNaN(asNum)) {
         throw new Error("" + original + " is not a valid number");
+      } else {
+        return asNum;
       }
     };
 
-    Fodder.prototype.__stringToNum = function(string) {
-      return Number(string);
-    };
-
-    Fodder.prototype.__replaceCommas = function(string) {
-      return string.replace(',', '.');
-    };
-
     Fodder.prototype.setSolids = function(solidsString) {
-      var convertedSolids, solidsInPercent;
-      solidsInPercent = solidsString.replace(',', '.');
-      convertedSolids = Number(solidsInPercent);
-      this.__isValidNumber(convertedSolids, solidsInPercent);
-      return this.solids = convertedSolids;
+      return this.solids = this.__isValidNumber(solidsString);
     };
 
     Fodder.prototype.setEnergy = function(energyString) {
-      var energy;
-      energy = this.__replaceCommas(energyString);
-      this.__isValidNumber(this.__stringToNum(energy), energy);
-      return this.energy = this.__stringToNum(energy);
+      return this.energy = this.__isValidNumber(energyString);
     };
 
     Fodder.prototype.setProtein = function(proteinString) {
-      var convertedProtein, protein;
-      protein = proteinString.replace(',', '.');
-      convertedProtein = Number(protein);
-      this.__isValidNumber(convertedProtein, protein);
-      return this.protein = convertedProtein;
+      return this.protein = this.__isValidNumber(proteinString);
     };
 
     Fodder.prototype.setCalcium = function(calciumString) {
-      var calcium, convertedCalcium;
-      calcium = calciumString.replace(',', '.');
-      convertedCalcium = Number(calcium);
-      this.__isValidNumber(convertedCalcium, calcium);
-      return this.calcium = convertedCalcium;
+      return this.calcium = this.__isValidNumber(calciumString);
     };
 
     Fodder.prototype.setPhosphor = function(phosphorString) {
-      var convertedPhosphor, phosphor;
-      phosphor = phosphorString.replace(',', '.');
-      convertedPhosphor = Number(phosphor);
-      this.__isValidNumber(convertedPhosphor, phosphor);
-      return this.phosphor = convertedPhosphor;
+      return this.phosphor = this.__isValidNumber(phosphorString);
     };
 
     Fodder.prototype.setMagnesium = function(magnesiumString) {
-      var convertedMagnesium, magnesium;
-      magnesium = magnesiumString.replace(',', '.');
-      convertedMagnesium = Number(magnesium);
-      this.__isValidNumber(convertedMagnesium, magnesium);
-      return this.magnesium = convertedMagnesium;
+      return this.magnesium = this.__isValidNumber(magnesiumString);
     };
 
     Fodder.prototype.setSelenium = function(seleniumString) {
-      var convertedSelenium, selenium;
-      selenium = seleniumString.replace(',', '.');
-      convertedSelenium = Number(selenium);
-      this.__isValidNumber(convertedSelenium, selenium);
-      return this.selenium = convertedSelenium;
+      return this.selenium = this.__isValidNumber(seleniumString);
     };
 
     return Fodder;

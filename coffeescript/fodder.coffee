@@ -16,56 +16,33 @@ class Fodder
   setAmount: (amount) ->
     @amount = amount
 
-  __isValidNumber: (converted, original) ->
-    if isNaN converted
+  __isValidNumber: (original) ->
+    asNum = (Number) original.replace(',', '.')
+    if isNaN asNum
       throw new Error "#{original} is not a valid number"
-
-  __stringToNum: (string) ->
-    (Number) string
-
-  __replaceCommas: (string) ->
-    string.replace(',','.')
+    else
+      asNum
 
   setSolids: (solidsString) ->
-    solidsInPercent = solidsString.replace(',','.')
-    convertedSolids = (Number) solidsInPercent
-    @__isValidNumber(convertedSolids, solidsInPercent)
-    @solids = convertedSolids
+    @solids = @__isValidNumber solidsString
 
   setEnergy: (energyString) ->
-    energy = @__replaceCommas(energyString)
-    @__isValidNumber(@__stringToNum(energy), energy)
-    @energy = @__stringToNum(energy)
+    @energy =  @__isValidNumber energyString
 
   setProtein: (proteinString) ->
-    protein = proteinString.replace(',','.')
-    convertedProtein = (Number) protein
-    @__isValidNumber(convertedProtein, protein)
-    @protein = convertedProtein
+    @protein = @__isValidNumber proteinString
 
   setCalcium: (calciumString) ->
-    calcium = calciumString.replace(',','.')
-    convertedCalcium = (Number) calcium
-    @__isValidNumber(convertedCalcium, calcium)
-    @calcium = convertedCalcium
+    @calcium = @__isValidNumber calciumString
 
   setPhosphor: (phosphorString) ->
-    phosphor = phosphorString.replace(',','.')
-    convertedPhosphor = (Number) phosphor
-    @__isValidNumber(convertedPhosphor, phosphor)
-    @phosphor = convertedPhosphor
+    @phosphor = @__isValidNumber phosphorString
 
   setMagnesium: (magnesiumString) ->
-    magnesium = magnesiumString.replace(',','.')
-    convertedMagnesium = (Number) magnesium
-    @__isValidNumber(convertedMagnesium, magnesium)
-    @magnesium = convertedMagnesium
+    @magnesium = @__isValidNumber magnesiumString
 
   setSelenium: (seleniumString) ->
-    selenium = seleniumString.replace(',','.')
-    convertedSelenium = (Number) selenium
-    @__isValidNumber(convertedSelenium, selenium)
-    @selenium = convertedSelenium
+    @selenium =@__isValidNumber seleniumString
 
 root = exports ? window
 root.Fodder = Fodder
