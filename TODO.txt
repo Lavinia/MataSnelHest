@@ -4,6 +4,7 @@
 * Se till att validering på inlagda foder INTE sparar fodret om det är felaktigt. Just nu blir 3,4: 4
 * Ge individuellt meddelande för varje felämne.
 * Se till att felen stannar kvar tills de är fixade- nu försvinner de när man skriver i annan ruta.
+* Vid extremt höga decimaltal fungerar inte avrundningen!
 
 ** TODO **
 * Startfärg i summa rutorna.
