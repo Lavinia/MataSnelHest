@@ -63,6 +63,14 @@
       return totals;
     };
 
+    FodderList.prototype.sufficentProteinEnergyQuotient = function(nominator, denominator) {
+      if (nominator / denominator >= 6) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
     return FodderList;
 
   })();

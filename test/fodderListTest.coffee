@@ -67,3 +67,15 @@ describe 'FodderList', ->
       @fodderList.calculateQuotient(fodder.protein, fodder.energy).should.eql 4.1
       @fodderList.calculateQuotient(fodder.calcium, fodder.phosphor).should.eql 1.7
       @fodderList.calculateQuotient(fodder.calcium, fodder.magnesium).should.eql 2.8
+
+    describe '#sufficientProteinEnergyQuotient', ->
+      it 'returns true when qoutient is over 6', ->
+        fodder = { amount: 1, energy: 6, protein: 38, calcium: 3.7, phosphor: 2.2, magnesium: 1.3 }
+        @fodderList.append new Fodder fodder
+        @fodderList.sufficentProteinEnergyQuotient(fodder.protein, fodder.energy).should.be.true
+
+      it 'returns false when below 6', ->
+        fodder = { amount: 1, energy: 5.4, protein: 22, calcium: 3.7, phosphor: 2.2, magnesium: 1.3 }
+        @fodderList.append new Fodder fodder
+        @fodderList.sufficentProteinEnergyQuotient(fodder.protein, fodder.energy).should.be.false
+

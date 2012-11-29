@@ -37,6 +37,9 @@ class FodderList
 
     totals
 
+  sufficentProteinEnergyQuotient: (nominator, denominator) ->
+    if nominator / denominator >= 6 then true else false
+
 
 root = exports ? window
 root.FodderList = FodderList
