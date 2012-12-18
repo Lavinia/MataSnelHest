@@ -196,6 +196,14 @@ describe 'Need', ->
 		it 'returns false when below the selenium need', ->
 			@need.sufficientSelenium(0.89).should.equal false
 
+	describe 'sufficient salt', ->
+		beforeEach ->
+			@need.saltInGrams = -> 22.4
+		it 'returns true when above salt need', ->
+			@need.sufficientSalt(22.4).should.equal true
+		it 'returns false when below the salt need', ->
+			@need.sufficientSalt(22.3).should.equal false
+
 
 
 

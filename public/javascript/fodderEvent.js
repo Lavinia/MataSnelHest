@@ -14,7 +14,7 @@
     var id;
     fodder_list.append(new Fodder);
     id = fodder_list.lastIndex();
-    return jQuery('#fodder_header_table').append("<tr>\n  <td><input type=\"text\" class=\"fodder-name\" id=\"fodder_name_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_amount_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_solids_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_energy_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_protein_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_calcium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_phosphor_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_magnesium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_selenium_" + id + "\" /></td>\n  <td><div id=\"add_fodder\">Lägg till nytt foder</div></td>\n</tr>\n");
+    return jQuery('#fodder_header_table').append("<tr>\n  <td><input type=\"text\" class=\"fodder-name\" id=\"fodder_name_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_amount_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_solids_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_energy_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_protein_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_calcium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_phosphor_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_magnesium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_selenium_" + id + "\" /></td>\n  <td><input type=\"text\" id=\"fodder_salt_" + id + "\" /></td>\n  <td><div id=\"add_fodder\">Lägg till nytt foder</div></td>\n</tr>\n");
   };
 
   colourizeResults = function(totals) {
@@ -24,6 +24,7 @@
     colourFor(need.suffientPhosphor(totals.phosphor), '#total_phosphor');
     colourFor(need.suffientMagnesium(totals.magnesium), '#total_magnesium');
     colourFor(need.sufficientSelenium(totals.selenium), '#total_selenium');
+    colourFor(need.sufficientSalt(totals.salt), '#total_salt');
     colourFor(fodder_list.sufficentProteinEnergyQuotient(totals.protein, totals.energy), '#MJSmrp-quotient span');
     colourFor(fodder_list.sufficentCalciumPhosphorQuotient(totals.calcium, totals.phosphor), '#CaP-quotient span');
     return colourFor(fodder_list.sufficentCalciumMagnesiumQuotient(totals.calcium, totals.magnesium), '#CaMg-quotient span');
@@ -59,6 +60,7 @@
     jQuery('#total_phosphor').html(round(totals.phosphor));
     jQuery('#total_magnesium').html(round(totals.magnesium));
     jQuery('#total_selenium').html(round(totals.selenium));
+    jQuery('#total_salt').html(round(totals.salt));
     addQoutients('#MJSmrp-quotient span', totals.protein, totals.energy);
     addQoutients('#CaP-quotient span', totals.calcium, totals.phosphor);
     addQoutients('#CaMg-quotient span', totals.calcium, totals.magnesium);

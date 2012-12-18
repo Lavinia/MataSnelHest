@@ -46,7 +46,8 @@
         calcium: 0,
         phosphor: 0,
         magnesium: 0,
-        selenium: 0
+        selenium: 0,
+        salt: 0
       };
       _ref = this._fodders;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -59,6 +60,7 @@
         totals.phosphor += fodder.phosphor * fodder.amount;
         totals.magnesium += fodder.magnesium * fodder.amount;
         totals.selenium += fodder.selenium * fodder.amount;
+        totals.salt += fodder.salt * fodder.amount;
       }
       return totals;
     };

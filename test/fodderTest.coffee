@@ -7,7 +7,7 @@ expect = chai.expect
 describe 'Fodder', ->
   describe 'with initialization', ->
     it 'can be initialized with a set of values', ->
-      fodder = new Fodder({name: 'silage', amount: 1, energy: 2, solids: 3, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8 })
+      fodder = new Fodder({name: 'silage', amount: 1, energy: 2, solids: 3, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8, salt: 9 })
       fodder.name.should.equal 'silage'
       fodder.amount.should.equal 1
       fodder.energy.should.equal 2
@@ -17,7 +17,7 @@ describe 'Fodder', ->
       fodder.phosphor.should.equal 6
       fodder.magnesium.should.equal 7
       fodder.selenium.should.equal 8
-
+      fodder.salt.should.equal 9
   beforeEach ->
     @fodder = new Fodder
 
@@ -135,4 +135,19 @@ describe 'Fodder', ->
       seleniumInLetters = 'tjugotvå'
       (=> @fodder.setSelenium seleniumInLetters).should.throw "#{seleniumInLetters} is not a valid number"
       @fodder.selenium.should.equal 34
+
+
+  describe 'salt', ->
+    it 'should be 0 from the beginning', ->
+      @fodder.salt.should.equal 0
+
+    it 'can be set', ->
+      @fodder.setSalt '84'
+      @fodder.salt.should.equal 84
+
+    it 'throws an exception without changing the salt value, when given letters', ->
+      @fodder.setSalt '34'
+      saltInLetters = 'tjugotvå'
+      (=> @fodder.setSalt saltInLetters).should.throw "#{saltInLetters} is not a valid number"
+      @fodder.salt.should.equal 34
 

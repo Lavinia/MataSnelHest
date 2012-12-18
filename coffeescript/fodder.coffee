@@ -9,6 +9,7 @@ class Fodder
     @phosphor = options['phosphor'] or 0
     @magnesium = options['magnesium'] or 0
     @selenium = options['selenium'] or 0
+    @salt = options['salt'] or 0
 
   setName: (name) ->
     @name = name
@@ -42,7 +43,10 @@ class Fodder
     @magnesium = @__isValidNumber magnesiumString
 
   setSelenium: (seleniumString) ->
-    @selenium =@__isValidNumber seleniumString
+    @selenium = @__isValidNumber seleniumString
+
+  setSalt: (saltString) ->
+    @salt = @__isValidNumber saltString
 
 root = exports ? window
 root.Fodder = Fodder

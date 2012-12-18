@@ -1,7 +1,4 @@
 ** BUGS **
-* Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
-* validering för input med text eller , istället för . (3,33 istället för 3.33) Eller borde man bara byta tecknet??
-* Se till att validering på inlagda foder INTE sparar fodret om det är felaktigt. Just nu blir 3,4: 4
 * Ge individuellt meddelande för varje felämne.
 * Se till att felen stannar kvar tills de är fixade- nu försvinner de när man skriver i annan ruta.
 * Vid extremt höga decimaltal fungerar inte avrundningen!
@@ -14,9 +11,10 @@
 * Samma storlek i alla fält
 * Styla tabell
 * Ge bättre felmeddelande vid olika input fel.
+* Markera tydligt vad som är min/max/perfekt.
+* Refaktorera. Är denna lösning verkligen den bästa för behovet??
 
 ** NEW THINGS **
-* Saltbehov
 * Övriga vitaminer/mineraler
 * Övriga kvoter
 
@@ -37,6 +35,9 @@
 * Ca/Mg-kvot? ej under 2.7
 
 *** DONE ***
+* Se till att validering på inlagda foder INTE sparar fodret om det är felaktigt. Just nu blir 3,4: 4
+* Kolla att det inte blir NaN nånstans (kvoterna tex) - horse, där finns koll! (Kan man bryta ut kollen kanske??(egen klass?? error check??)(blir ev 2 olika (unless/if)))
+* validering för input med text eller , istället för . (3,33 istället för 3.33) Eller borde man bara byta tecknet??
 * Räknar ut falsk kvot på Mj/Smrp när den inte finns och mineralerna finns (dvs mj och smrp finns inte!!)
 * Skriv ut MJ/smrp och Ca/P
 * Avrundar inte TS i uträkningen korrekt
@@ -48,4 +49,6 @@
 * Avrundning för kvoterna
 * Bryt ut avrundningen till egen klass (eller liknande) och se till att man kan välja om man vill ha 1 eller 2 decimaler.(need och fodderlist har nu.)
 * Röd/grön beroende på om det är för mycket/för lite näring
+* Saltbehov
+
 

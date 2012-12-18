@@ -149,6 +149,10 @@
       return (this.seleniumInMilligrams() <= selenium && selenium <= this.__maxSeleniumNeed());
     };
 
+    Need.prototype.sufficientSalt = function(salt) {
+      return this.__sufficientMacroMineral(salt, this.saltInGrams());
+    };
+
     return Need;
 
   })();

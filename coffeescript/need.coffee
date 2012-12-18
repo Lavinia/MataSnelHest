@@ -103,5 +103,8 @@ class Need
 	sufficientSelenium: (selenium) ->
 		this.seleniumInMilligrams() <= selenium <= @__maxSeleniumNeed()
 
+	sufficientSalt: (salt) ->
+		@__sufficientMacroMineral(salt, this.saltInGrams())
+
 root = exports ? window
 root.Need = Need

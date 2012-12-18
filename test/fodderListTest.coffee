@@ -23,17 +23,17 @@ describe 'FodderList', ->
 
   describe '#calculate', ->
     it 'calculates the total nutrition in all fodders', ->
-      @fodderList.append new Fodder { amount: 2, energy: 1, solids: 60, protein: 3, calcium: 4, phosphor: 5, magnesium: 6, selenium: 7 }
-      @fodderList.append new Fodder { amount: 3, energy: 2, solids: 32, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8 }
-      @fodderList.calculate().should.eql {energy: 8, solids: 2.16, protein: 18, calcium: 23, phosphor: 28, magnesium: 33, selenium: 38}
+      @fodderList.append new Fodder { amount: 2, energy: 1, solids: 60, protein: 3, calcium: 4, phosphor: 5, magnesium: 6, selenium: 7, salt: 8 }
+      @fodderList.append new Fodder { amount: 3, energy: 2, solids: 32, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8, salt: 9 }
+      @fodderList.calculate().should.eql {energy: 8, solids: 2.16, protein: 18, calcium: 23, phosphor: 28, magnesium: 33, selenium: 38, salt: 43}
 
     it 'returns a fodder list with only zeroes if no fodders are in there', ->
-      @fodderList.calculate().should.eql {energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0}
+      @fodderList.calculate().should.eql {energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0, salt: 0}
 
     it 'calculates the total nutrition correctly when some nutrients are left out.', ->
       fodder1 = { amount: 2, solids: 84, calcium: 4.5, magnesium: 6, selenium: 7 }
-      fodder2 = { amount: 3, energy: 2, solids: 55, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8 }
-      expected = { energy: 6, solids: 3.33, protein: 12, calcium: 24, phosphor: 18, magnesium: 33, selenium: 38 }
+      fodder2 = { amount: 3, energy: 2, solids: 55, protein: 4, calcium: 5, phosphor: 6, magnesium: 7, selenium: 8, salt: 9 }
+      expected = { energy: 6, solids: 3.33, protein: 12, calcium: 24, phosphor: 18, magnesium: 33, selenium: 38, salt: 27 }
 
       @fodderList.append new Fodder fodder1
       @fodderList.append new Fodder fodder2

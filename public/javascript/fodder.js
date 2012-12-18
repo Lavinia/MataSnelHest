@@ -19,6 +19,7 @@
       this.phosphor = options['phosphor'] || 0;
       this.magnesium = options['magnesium'] || 0;
       this.selenium = options['selenium'] || 0;
+      this.salt = options['salt'] || 0;
     }
 
     Fodder.prototype.setName = function(name) {
@@ -65,6 +66,10 @@
 
     Fodder.prototype.setSelenium = function(seleniumString) {
       return this.selenium = this.__isValidNumber(seleniumString);
+    };
+
+    Fodder.prototype.setSalt = function(saltString) {
+      return this.salt = this.__isValidNumber(saltString);
     };
 
     return Fodder;

@@ -23,7 +23,7 @@ class FodderList
       Math.round((nutrient_nominator / nutrient_denominator) * 10) / 10
 
   calculate: ->
-    totals = { energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0 }
+    totals = { energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0, salt: 0 }
 
     for fodder in @_fodders
       solids_in_kilos = (fodder.solids / 100) * fodder.amount
@@ -34,6 +34,7 @@ class FodderList
       totals.phosphor += fodder.phosphor * fodder.amount
       totals.magnesium += fodder.magnesium * fodder.amount
       totals.selenium += fodder.selenium * fodder.amount
+      totals.salt += fodder.salt * fodder.amount
 
     totals
 

@@ -19,6 +19,7 @@ addFodder = () ->
       <td><input type="text" id="fodder_phosphor_#{id}" /></td>
       <td><input type="text" id="fodder_magnesium_#{id}" /></td>
       <td><input type="text" id="fodder_selenium_#{id}" /></td>
+      <td><input type="text" id="fodder_salt_#{id}" /></td>
       <td><div id="add_fodder">Lägg till nytt foder</div></td>
     </tr>
 
@@ -31,6 +32,7 @@ colourizeResults = (totals) ->
   colourFor(need.suffientPhosphor(totals.phosphor), '#total_phosphor')
   colourFor(need.suffientMagnesium(totals.magnesium), '#total_magnesium')
   colourFor(need.sufficientSelenium(totals.selenium), '#total_selenium')
+  colourFor(need.sufficientSalt(totals.salt), '#total_salt')
   colourFor(fodder_list.sufficentProteinEnergyQuotient(totals.protein, totals.energy),'#MJSmrp-quotient span')
   colourFor(fodder_list.sufficentCalciumPhosphorQuotient(totals.calcium, totals.phosphor),'#CaP-quotient span')
   colourFor(fodder_list.sufficentCalciumMagnesiumQuotient(totals.calcium, totals.magnesium),'#CaMg-quotient span')
@@ -57,6 +59,7 @@ addSumsAndQuotients = (totals) ->
   jQuery('#total_phosphor').html(round(totals.phosphor))
   jQuery('#total_magnesium').html(round(totals.magnesium))
   jQuery('#total_selenium').html(round(totals.selenium))
+  jQuery('#total_salt').html(round(totals.salt))
 
   addQoutients('#MJSmrp-quotient span', totals.protein, totals.energy)
   addQoutients('#CaP-quotient span', totals.calcium, totals.phosphor)
