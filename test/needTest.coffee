@@ -98,6 +98,14 @@ describe 'Need', ->
 			@horse.setWeight 455
 			@need.solidsInKilos().should.equal 6.82
 
+	describe 'calculate salt', ->
+		it "calculates the salt need in grams based on the horse's weight and workload", ->
+			ratios = [0.0, 0.29, 0.49, 0.74, 1.3]
+			expected = [22.95, 31.5, 40.5, 58.5, 94.5]
+			for i in [0...ratios.length]
+				@need.workBaseEnergyRatio = -> ratios[i]
+				@need.saltInGrams().should.equal expected[i]
+
 	describe 'calculate ratio of base need and work need', ->
 		it 'calculates the ratio of the base need and work need', ->
 			@need.baseEnergyInMJ = -> 56.00

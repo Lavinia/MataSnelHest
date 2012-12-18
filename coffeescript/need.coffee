@@ -13,8 +13,10 @@ class Need
 			factor = mineralNeeds[1]
 		else if ratio < 0.50
 			factor = mineralNeeds[2]
-		else
+		else if ratio < 0.75
 			factor = mineralNeeds[3]
+		else
+			factor = mineralNeeds[4]
 
 	__sufficientMacroMineral: (mineral, mineral_need) ->
 		mineral_need <= mineral <= (1.5 * mineral_need)
@@ -63,19 +65,22 @@ class Need
 		@__round @energyInMJ() * 6
 
 	calciumInGrams: ->
-		@__round @__horseWeightInDeciton() * @__macroMineralNeed([4.0, 6.0, 7.0, 8.0])
+		@__round @__horseWeightInDeciton() * @__macroMineralNeed([4.0, 6.0, 7.0, 8.0, 8.0])
 
 	phosphorInGrams: ->
-		@__round @__horseWeightInDeciton() * @__macroMineralNeed([2.8, 3.6, 4.2, 5.8])
+		@__round @__horseWeightInDeciton() * @__macroMineralNeed([2.8, 3.6, 4.2, 5.8, 5.8])
 
 	magnesiumInGrams: ->
-		@__round @__horseWeightInDeciton() * @__macroMineralNeed([1.5, 1.9, 2.3, 3.0])
+		@__round @__horseWeightInDeciton() * @__macroMineralNeed([1.5, 1.9, 2.3, 3.0, 3.0])
 
 	seleniumInMilligrams: ->
 		@__round @__horseWeightInDeciton() * 0.2
 
 	solidsInKilos: ->
 		@__round @__horseWeightInDeciton() * 1.5
+
+	saltInGrams: ->
+		@__horseWeightInDeciton() * @__macroMineralNeed([5.1, 7, 9, 13, 21])
 
 	sufficientSolids: (solids) ->
 		@__horseWeightInDeciton() <= solids <= @__maxSolids()
