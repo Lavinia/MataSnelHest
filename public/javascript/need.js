@@ -10,56 +10,20 @@
       this.horse = horse;
     }
 
-    Need.prototype.__round = function(value) {
-      return Math.round(value * 100) / 100;
+    Need.prototype.solidsInKilos = function() {
+      return this.__round(this.__horseWeightInDeciton() * 1.5);
     };
 
-    Need.prototype.__macroMineralNeed = function(mineralNeeds) {
-      var factor, ratio;
-      ratio = this.workBaseEnergyRatio();
-      if (ratio === 0) {
-        return factor = mineralNeeds[0];
-      } else if (ratio < 0.30) {
-        return factor = mineralNeeds[1];
-      } else if (ratio < 0.50) {
-        return factor = mineralNeeds[2];
-      } else if (ratio < 0.75) {
-        return factor = mineralNeeds[3];
-      } else {
-        return factor = mineralNeeds[4];
-      }
+    Need.prototype.sufficientSolids = function(solids) {
+      return (this.__horseWeightInDeciton() <= solids && solids <= this.__maxSolids());
     };
 
-    Need.prototype.__sufficientMacroMineral = function(mineral, mineral_need) {
-      return (mineral_need <= mineral && mineral <= (1.5 * mineral_need));
+    Need.prototype.energyInMJ = function() {
+      return this.__round(this.baseEnergyInMJ() + this.workEnergyInMJ());
     };
 
-    Need.prototype.__maxSeleniumNeed = function() {
-      return this.__horseWeightInDeciton() * 5;
-    };
-
-    Need.prototype.__minProteinNeed = function() {
-      return 0.9 * this.proteinInGrams();
-    };
-
-    Need.prototype.__maxProteinNeed = function() {
-      return 1.1 * this.proteinInGrams();
-    };
-
-    Need.prototype.__minEnergyNeed = function() {
-      return this.energyInMJ() - 3;
-    };
-
-    Need.prototype.__maxEnergyNeed = function() {
-      return this.energyInMJ() + 3;
-    };
-
-    Need.prototype.__horseWeightInDeciton = function() {
-      return this.horse.weight / 100;
-    };
-
-    Need.prototype.__maxSolids = function() {
-      return this.__horseWeightInDeciton() * 3.00;
+    Need.prototype.workBaseEnergyRatio = function() {
+      return this.workEnergyInMJ() / this.baseEnergyInMJ();
     };
 
     Need.prototype.workEnergyInMJ = function() {
@@ -85,72 +49,108 @@
       return 0.5 * Math.pow(this.horse.weight, 0.75) * feedTypeFactor * genderFactor;
     };
 
-    Need.prototype.workBaseEnergyRatio = function() {
-      return this.workEnergyInMJ() / this.baseEnergyInMJ();
-    };
-
-    Need.prototype.energyInMJ = function() {
-      return this.__round(this.baseEnergyInMJ() + this.workEnergyInMJ());
+    Need.prototype.sufficentEnergy = function(energy) {
+      return (this.__minEnergyNeed() <= energy && energy <= this.__maxEnergyNeed());
     };
 
     Need.prototype.proteinInGrams = function() {
       return this.__round(this.energyInMJ() * 6);
     };
 
-    Need.prototype.calciumInGrams = function() {
-      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([4.0, 6.0, 7.0, 8.0, 8.0]));
-    };
-
-    Need.prototype.phosphorInGrams = function() {
-      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([2.8, 3.6, 4.2, 5.8, 5.8]));
-    };
-
-    Need.prototype.magnesiumInGrams = function() {
-      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([1.5, 1.9, 2.3, 3.0, 3.0]));
-    };
-
-    Need.prototype.seleniumInMilligrams = function() {
-      return this.__round(this.__horseWeightInDeciton() * 0.2);
-    };
-
-    Need.prototype.solidsInKilos = function() {
-      return this.__round(this.__horseWeightInDeciton() * 1.5);
-    };
-
-    Need.prototype.saltInGrams = function() {
-      return this.__horseWeightInDeciton() * this.__macroMineralNeed([5.1, 7, 9, 13, 21]);
-    };
-
-    Need.prototype.sufficientSolids = function(solids) {
-      return (this.__horseWeightInDeciton() <= solids && solids <= this.__maxSolids());
-    };
-
-    Need.prototype.sufficentEnergy = function(energy) {
-      return (this.__minEnergyNeed() <= energy && energy <= this.__maxEnergyNeed());
-    };
-
     Need.prototype.sufficentProtein = function(protein) {
       return (this.__minProteinNeed() <= protein && protein <= this.__maxProteinNeed());
+    };
+
+    Need.prototype.calciumInGrams = function() {
+      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([4.0, 6.0, 7.0, 8.0, 8.0]));
     };
 
     Need.prototype.suffientCalcium = function(calcium) {
       return this.__sufficientMacroMineral(calcium, this.calciumInGrams());
     };
 
+    Need.prototype.phosphorInGrams = function() {
+      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([2.8, 3.6, 4.2, 5.8, 5.8]));
+    };
+
     Need.prototype.suffientPhosphor = function(phosphor) {
       return this.__sufficientMacroMineral(phosphor, this.phosphorInGrams());
+    };
+
+    Need.prototype.magnesiumInGrams = function() {
+      return this.__round(this.__horseWeightInDeciton() * this.__macroMineralNeed([1.5, 1.9, 2.3, 3.0, 3.0]));
     };
 
     Need.prototype.suffientMagnesium = function(magnesium) {
       return this.__sufficientMacroMineral(magnesium, this.magnesiumInGrams());
     };
 
+    Need.prototype.seleniumInMilligrams = function() {
+      return this.__round(this.__horseWeightInDeciton() * 0.2);
+    };
+
     Need.prototype.sufficientSelenium = function(selenium) {
       return (this.seleniumInMilligrams() <= selenium && selenium <= this.__maxSeleniumNeed());
     };
 
+    Need.prototype.saltInGrams = function() {
+      return this.__horseWeightInDeciton() * this.__macroMineralNeed([5.1, 7, 9, 13, 21]);
+    };
+
     Need.prototype.sufficientSalt = function(salt) {
       return this.__sufficientMacroMineral(salt, this.saltInGrams());
+    };
+
+    Need.prototype.__maxSolids = function() {
+      return this.__horseWeightInDeciton() * 3.00;
+    };
+
+    Need.prototype.__minEnergyNeed = function() {
+      return this.energyInMJ() - 3;
+    };
+
+    Need.prototype.__maxEnergyNeed = function() {
+      return this.energyInMJ() + 3;
+    };
+
+    Need.prototype.__macroMineralNeed = function(mineralNeeds) {
+      var factor, ratio;
+      ratio = this.workBaseEnergyRatio();
+      if (ratio === 0) {
+        return factor = mineralNeeds[0];
+      } else if (ratio < 0.30) {
+        return factor = mineralNeeds[1];
+      } else if (ratio < 0.50) {
+        return factor = mineralNeeds[2];
+      } else if (ratio < 0.75) {
+        return factor = mineralNeeds[3];
+      } else {
+        return factor = mineralNeeds[4];
+      }
+    };
+
+    Need.prototype.__sufficientMacroMineral = function(mineral, mineral_need) {
+      return (mineral_need <= mineral && mineral <= (1.5 * mineral_need));
+    };
+
+    Need.prototype.__minProteinNeed = function() {
+      return 0.9 * this.proteinInGrams();
+    };
+
+    Need.prototype.__maxProteinNeed = function() {
+      return 1.1 * this.proteinInGrams();
+    };
+
+    Need.prototype.__maxSeleniumNeed = function() {
+      return this.__horseWeightInDeciton() * 5;
+    };
+
+    Need.prototype.__round = function(value) {
+      return Math.round(value * 100) / 100;
+    };
+
+    Need.prototype.__horseWeightInDeciton = function() {
+      return this.horse.weight / 100;
     };
 
     return Need;
