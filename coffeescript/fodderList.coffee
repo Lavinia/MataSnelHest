@@ -17,10 +17,10 @@ class FodderList
     @_fodders[index]
 
   calculateQuotient: (nutrient_nominator, nutrient_denominator) ->
-    unless nutrient_nominator and nutrient_denominator
-      ""
-    else
+    if nutrient_nominator and nutrient_denominator
       Math.round((nutrient_nominator / nutrient_denominator) * 10) / 10
+    else
+      ""
 
   calculate: ->
     totals = { energy: 0, solids: 0, protein: 0, calcium: 0, phosphor: 0, magnesium: 0, selenium: 0, salt: 0 }
