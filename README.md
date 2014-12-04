@@ -2,6 +2,13 @@ MataSnelHest
 ============
 Feeding program for horses.
 
+Development
+============
+
+Start local web server: Foreman start
+Run all tests:  mocha --compilers coffee:coffee-script
+
+
 
 License
 =======
