@@ -5,10 +5,13 @@ Feeding program for horses.
 Development
 ============
 
-Start local web server: Foreman start
-Run all tests:  mocha --compilers coffee:coffee-script
+Needs foreman and node.js to work.
 
+* Recompile coffescript to javascript on every change: `./compile.sh`
 
+* Start local web server: `foreman start`
+
+* Run all tests: `mocha --compilers coffee:coffee-script -R spec`
 
 License
 =======
