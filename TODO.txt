@@ -2,6 +2,7 @@
 * Ge individuellt meddelande för varje felämne.
 * Se till att felen stannar kvar tills de är fixade- nu försvinner de när man skriver i annan ruta.
 * Vid extremt höga decimaltal fungerar inte avrundningen!
+* Bug där 6 visas som röd fast den borde vara grön (gissar på avrundningsfel) Den avrunda 5.99 till 6 i gränssnittet men räknar tydligen ut att den är under 6 i koden...
 
 ** TODO **
 * Startfärg i summa rutorna.
@@ -13,6 +14,7 @@
 * Ge bättre felmeddelande vid olika input fel.
 * Markera tydligt vad som är min/max/perfekt.
 * Refaktorera. Är denna lösning verkligen den bästa för behovet??
+* Ändra suffficient till in_range?
 
 ** NEW THINGS **
 * Övriga vitaminer/mineraler
@@ -32,7 +34,7 @@
 * Unghästar i motion
 
 ** KOLLA UPP **
-* Ca/Mg-kvot? ej under 2.7
+* Ca/Mg-kvot? ej under 2.0(1.5-3.0)
 
 *** DONE ***
 * Se till att validering på inlagda foder INTE sparar fodret om det är felaktigt. Just nu blir 3,4: 4
