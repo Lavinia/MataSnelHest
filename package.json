@@ -2,8 +2,8 @@
 	"name": "matasnelhest",
 	"version": "0.0.1",
 	"engines": {
-		"node": "0.6.17",
-		"npm": "1.1.9"
+		"node": "0.12.7",
+		"npm": "2.12.1"
 	},
 	"dependencies": {
 		"connect": "2.2.2"
