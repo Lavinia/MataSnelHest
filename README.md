@@ -5,13 +5,18 @@ Feeding program for horses.
 Development
 ============
 
-Needs foreman and node.js to work.
+MataSnelHest needs foreman and node.js to work. install via npm.
 
 * Recompile coffescript to javascript on every change: `./compile.sh`
 
 * Start local web server: `foreman start`
 
-* Run all tests: `mocha --compilers coffee:coffee-script -R spec`
+Tests
+=====
+
+Tests use mocha and chai. 
+* Install via npm: `npm install mocha` and `npm install chai`
+* Run tests `mocha --compilers coffee:coffee-script/register -R spec` 
 
 License
 =======
